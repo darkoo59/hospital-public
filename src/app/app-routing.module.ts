@@ -8,6 +8,7 @@ const routes: Routes = [
     path: 'integration', 
     loadChildren: () => import('./integration/integration.module').then(m => m.IntegrationModule)
   }
+  
 ];
 
 @NgModule({

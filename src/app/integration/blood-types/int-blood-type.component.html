@@ -1,0 +1,34 @@
+<div class="outer">
+  <form class="example-form inner" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 class="heading">Check blood type availability</h1>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>User</mat-label>
+      <input matInput [readonly]="true" value="Logged in user" formControlName="logged-user">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Blood bank</mat-label>
+      <input matInput [readonly]="true" value="Some blood bank" formControlName="blood-bank">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select an option</mat-label>
+      <mat-select formControlName="blood-type-select">
+        <mat-option>None</mat-option>
+        <mat-option value="o-positive">O+</mat-option>
+        <mat-option value="o-negative">O-</mat-option>
+        <mat-option value="a-positive">A+</mat-option>
+        <mat-option value="a-negative">A-</mat-option>
+        <mat-option value="b-positive">B+</mat-option>
+        <mat-option value="b-negative">B-</mat-option>
+        <mat-option value="ab-positive">AB+</mat-option>
+        <mat-option value="ab-negative">AB-</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-group">
+      <button type="button" mat-button>Cancel</button>
+      <button mat-flat-button color="primary">Submit</button>
+    </div>
+  </form>
+</div>
