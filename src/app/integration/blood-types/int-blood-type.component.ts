@@ -12,7 +12,8 @@ export class IntBloodTypeComponent implements OnInit {
   form: UntypedFormGroup = new UntypedFormGroup({
     'blood-bank': new FormControl('Some blood bank', Validators.required),
     'logged-user': new FormControl('Logged user', Validators.required),
-    'blood-type-select': new FormControl(null, Validators.required)
+    'blood-type-select': new FormControl(null, Validators.required),
+    'keyInput': new FormControl(null, Validators.required)
   })
 
 
