@@ -1,22 +1,26 @@
 <section class="form">
+    <h1> Feedback form: </h1>
     <form [formGroup]="feedbackForm">
         
         <mat-form-field class="form-field" appearance="fill">
             <mat-label for="feedbackText">Leave feedback</mat-label>
-            <textarea matInput placeholder="Share your opinions..." id="feedbackText" formControlName="feedbackText"></textarea>
+            <textarea matInput placeholder="Share your opinions: 1-500 characters" id="feedbackText" formControlName="feedbackText"
+            required minlength="1"></textarea>
         </mat-form-field>
 
         <section>
-            <mat-checkbox class="example-margin" id = "anonymity" formControlName = "anonymity"> Do you want to be anonymous? </mat-checkbox>
+            <mat-checkbox class="example-margin" id="anonymity" formControlName="anonymity"
+             matTooltip="Your profile won't be presented next to the feedback." matTooltipPosition="right"> Do you want to be anonymous? </mat-checkbox>
         </section>
 
         <section class="form-field">
-            <mat-checkbox class="example-margin" id = "privatisation" formControlName = "privatisation"> Do you want your feedback to be private? </mat-checkbox>
+            <mat-checkbox class="example-margin" id = "privatisation" formControlName = "privatisation"
+             matTooltip="The manager won't be able to make the feedback public." matTooltipPosition="right"> Do you want your feedback to be private? </mat-checkbox>
         </section>
 
         <section>
-            <button mat-raised-button> Cancel </button>
-            <button mat-raised-button disabled [disabled]="!feedbackForm.valid" class="submit-button"> Submit </button>
+           <button mat-raised-button disabled [disabled]="!feedbackForm.valid" class="submit-button"> Submit </button>
+           <button mat-raised-button class="button-position"> Cancel </button>
         </section>
 </form>
 </section>

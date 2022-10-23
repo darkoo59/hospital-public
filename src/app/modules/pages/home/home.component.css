@@ -1,4 +1,4 @@
-.feedback-form {
+  .feedback-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
@@ -13,8 +13,16 @@
     height: 270px;
     padding: 20px;
     width: 320px;
+    background-color: rgb(233, 229, 229);
+    border-radius: 5%;
+    margin: 1cm;
   }
 
   .submit-button{
     background-color: blueviolet;
+    float: right;
+  }
+
+  .button-position {
+    float: right;
   }

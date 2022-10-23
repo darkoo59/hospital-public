@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class HomeComponent{
 
   feedbackForm = new FormGroup({
-    feedbackText: new FormControl(''),
+    feedbackText: new FormControl('', Validators.maxLength(500)),
     anonymity: new FormControl(),
     privatisation: new FormControl()
   })

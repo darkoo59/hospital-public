@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTooltipModule
   ]
 })
 export class PagesModule { }
