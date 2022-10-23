@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import { IntegrationBloodTypeService, BloodTypeDTO } from '../../services/integration-blood-type.service';
-import { catchError, of } from 'rxjs';
+import { catchError, of, Subscription } from 'rxjs';
+import { IntUserDataService, ThirdPartyUser } from '../../services/int-user-data.service';
 
 @Component({
   selector: 'app-int-blood-type',
   templateUrl: './int-blood-type.component.html',
   styleUrls: ['./int-blood-type.component.css']
 })
-export class IntBloodTypeComponent {
+export class IntBloodTypeComponent implements OnInit, OnDestroy {
 
   form: UntypedFormGroup = new UntypedFormGroup({
     'blood-bank': new FormControl('Some blood bank', Validators.required),
@@ -18,8 +19,18 @@ export class IntBloodTypeComponent {
   })
   m_Errors: string[] = [];
 
+  constructor(private m_IntegrationBloodTypeService: IntegrationBloodTypeService, private m_UserDataService: IntUserDataService) { }
 
-  constructor(private m_IntegrationBloodTypeService: IntegrationBloodTypeService) { }
+  subs: Subscription[] = [];
+  user: ThirdPartyUser | null = null;
+
+  ngOnInit(): void {
+    const sub = this.m_UserDataService.m_UserData$.subscribe(data => this.user = data);
+    this.subs.push(sub);
+  }
+  ngOnDestroy(): void {
+    this.subs.forEach((sub: Subscription) => sub.unsubscribe());
+  }
 
   onSubmit() : void {
     this.m_Errors.length = 0

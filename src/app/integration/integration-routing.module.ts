@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { IntBloodTypeComponent } from "./pages/blood-types/int-blood-type.component";
 import { IntegrationComponent } from "./integration.component";
 import { IntHomeComponent } from "./pages/home/int-home.component";
+import { IntSettingsComponent } from "./pages/settings/int-settings.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'bloodtypes',
         component: IntBloodTypeComponent
+      },
+      {
+        path: 'settings',
+        component: IntSettingsComponent
       },
       { path: '**', redirectTo: 'home', pathMatch: 'full' },
     ]
