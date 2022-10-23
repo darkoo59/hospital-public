@@ -11,18 +11,19 @@
       <input matInput [readonly]="true" value="Some blood bank" formControlName="blood-bank">
     </mat-form-field>
 
+    
     <mat-form-field appearance="fill" class="example-full-width">
       <mat-label>Select an option</mat-label>
       <mat-select formControlName="blood-type-select">
         <mat-option>None</mat-option>
-        <mat-option value="o-positive">O+</mat-option>
-        <mat-option value="o-negative">O-</mat-option>
-        <mat-option value="a-positive">A+</mat-option>
-        <mat-option value="a-negative">A-</mat-option>
-        <mat-option value="b-positive">B+</mat-option>
-        <mat-option value="b-negative">B-</mat-option>
-        <mat-option value="ab-positive">AB+</mat-option>
-        <mat-option value="ab-negative">AB-</mat-option>
+        <mat-option value=0 type="number">A+</mat-option>
+        <mat-option value=1>A-</mat-option>
+        <mat-option value=2>B+</mat-option>
+        <mat-option value=3>B-</mat-option>
+        <mat-option value=4>O+</mat-option>
+        <mat-option value=5>O-</mat-option>
+        <mat-option value=6>AB+</mat-option>
+        <mat-option value=7>AB-</mat-option>
       </mat-select>
     </mat-form-field>
     
