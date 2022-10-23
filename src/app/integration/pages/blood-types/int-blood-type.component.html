@@ -40,7 +40,7 @@
     <div *ngIf="form.controls['quantity-check'].value">
       <mat-form-field class="example-full-width"  appearance="fill">
         <mat-label>Quantity</mat-label>
-        <input type="number" value="0" matInput formControlName="blood-quantity">
+        <input type="number" min="0" value="0" matInput formControlName="blood-quantity">
       </mat-form-field>
     </div>
 
