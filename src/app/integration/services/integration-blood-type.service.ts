@@ -6,6 +6,7 @@ import { environment } from "src/environments/environment"
 export interface BloodTypeDTO {
   bloodType: number
   apiKey: string
+  bloodQuantity: number
 }
 
 @Injectable({

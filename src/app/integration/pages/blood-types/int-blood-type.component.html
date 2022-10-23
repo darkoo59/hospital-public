@@ -1,14 +1,15 @@
 <div class="outer">
   <form class="example-form inner" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h1 class="heading">Check blood type availability</h1>
+
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>User</mat-label>
-      <input matInput [readonly]="true" value="Logged in user" formControlName="logged-user">
+      <input matInput [readonly]="true" formControlName="logged-user">
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Blood bank</mat-label>
-      <input matInput [readonly]="true" value="Some blood bank" formControlName="blood-bank">
+      <input matInput [readonly]="true" formControlName="blood-bank">
     </mat-form-field>
 
     
@@ -16,7 +17,7 @@
       <mat-label>Select an option</mat-label>
       <mat-select formControlName="blood-type-select">
         <mat-option>None</mat-option>
-        <mat-option value=0 type="number">A+</mat-option>
+        <mat-option value=0>A+</mat-option>
         <mat-option value=1>A-</mat-option>
         <mat-option value=2>B+</mat-option>
         <mat-option value=3>B-</mat-option>
@@ -31,6 +32,17 @@
       <mat-label>Key</mat-label>
       <input matInput formControlName="keyInput">
     </mat-form-field>
+
+    <section class="example-section">
+      <mat-checkbox class="example-margin" formControlName="quantity-check">Check for a specific quantity</mat-checkbox>
+    </section>
+
+    <div *ngIf="form.controls['quantity-check'].value">
+      <mat-form-field class="example-full-width"  appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input type="number" value="0" matInput formControlName="blood-quantity">
+      </mat-form-field>
+    </div>
 
     <div class="button-group">
       <button type="button" mat-button>Cancel</button>
