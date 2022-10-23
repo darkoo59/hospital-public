@@ -1,0 +1,3 @@
+<section *ngIf="(m_User$ | async) as user">
+  <div *ngFor="let item of user | keyvalue">{{item.key}} : {{item.value}}</div>
+</section>

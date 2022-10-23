@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, UntypedFormGroup, Validators} from '@angular/forms';
-import { UrlSerializer } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-int-blood-type',
   templateUrl: './int-blood-type.component.html',
   styleUrls: ['./int-blood-type.component.css']
 })
-export class IntBloodTypeComponent implements OnInit {
+export class IntBloodTypeComponent {
 
   form: UntypedFormGroup = new UntypedFormGroup({
     'blood-bank': new FormControl('Some blood bank', Validators.required),
@@ -16,16 +15,11 @@ export class IntBloodTypeComponent implements OnInit {
     'keyInput': new FormControl(null, Validators.required)
   })
 
-
   constructor() { }
 
-  onSubmit() : void {
-    if(!this.form.valid) return;
+  onSubmit(): void {
+    if (!this.form.valid) return;
     console.log(this.form.getRawValue())
-  }
-
-  ngOnInit() {
-
   }
 
 }
