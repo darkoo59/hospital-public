@@ -7,12 +7,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
   
   {
     path: 'integration', 
     loadChildren: () => import('./integration/integration.module').then(m => m.IntegrationModule)
-  }
+  },
+  
+  { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
   
 ];
 

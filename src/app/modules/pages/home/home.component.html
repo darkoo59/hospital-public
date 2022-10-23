@@ -1,1 +1,23 @@
-<p>home works!</p>
+<section class="form">
+    <form [formGroup]="feedbackForm">
+        
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label for="feedbackText">Leave feedback</mat-label>
+            <textarea matInput placeholder="Share your opinions..." id="feedbackText" formControlName="feedbackText"></textarea>
+        </mat-form-field>
+
+        <section>
+            <mat-checkbox class="example-margin" id = "anonymity" formControlName = "anonymity"> Do you want to be anonymous? </mat-checkbox>
+        </section>
+
+        <section class="form-field">
+            <mat-checkbox class="example-margin" id = "privatisation" formControlName = "privatisation"> Do you want your feedback to be private? </mat-checkbox>
+        </section>
+
+        <section>
+            <button mat-raised-button> Cancel </button>
+            <button mat-raised-button disabled [disabled]="!feedbackForm.valid" class="submit-button"> Submit </button>
+        </section>
+</form>
+</section>
+      
