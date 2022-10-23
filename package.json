@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
     "bootstrap": "^5.2.2",
+    "ng-let": "^14.0.1",
     "rxjs": "~7.5.0",
     "startbootstrap-landing-page": "^6.0.5",
     "tslib": "^2.3.0",

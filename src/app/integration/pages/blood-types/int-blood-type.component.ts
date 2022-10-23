@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup, Validators} from '@angular/forms';
-import { IntegrationBloodTypeService, BloodTypeDTO } from '../services/integration-blood-type.service';
+import { IntegrationBloodTypeService, BloodTypeDTO } from '../../services/integration-blood-type.service';
 import { catchError, of } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { catchError, of } from 'rxjs';
   templateUrl: './int-blood-type.component.html',
   styleUrls: ['./int-blood-type.component.css']
 })
-export class IntBloodTypeComponent implements OnInit {
+export class IntBloodTypeComponent {
 
   form: UntypedFormGroup = new UntypedFormGroup({
     'blood-bank': new FormControl('Some blood bank', Validators.required),
@@ -48,10 +48,6 @@ export class IntBloodTypeComponent implements OnInit {
       }))
       .subscribe(_ => {
       });
-  }
-
-  ngOnInit() {
-
   }
 
 }
