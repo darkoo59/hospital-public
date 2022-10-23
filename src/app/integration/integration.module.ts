@@ -10,6 +10,7 @@ import { IntNavComponent } from "./nav/int-nav.component";
 import { IntHomeComponent } from "./pages/home/int-home.component";
 import { IntLoginComponent } from "./login/int-login.component";
 import { NgLetModule } from 'ng-let';
+import { IntSettingsComponent } from "./pages/settings/int-settings.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgLetModule } from 'ng-let';
     IntNavComponent,
     IntHomeComponent,
     IntBloodTypeComponent,
-    IntLoginComponent
+    IntLoginComponent,
+    IntSettingsComponent
   ],
   imports: [
     CommonModule,

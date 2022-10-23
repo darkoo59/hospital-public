@@ -19,6 +19,10 @@ export class IntNavComponent implements OnInit {
     {
       path: 'bloodtypes',
       title: 'Blood Types'
+    },
+    {
+      path: 'settings',
+      title: 'Settings'
     }
   ];
 
