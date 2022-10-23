@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import { IntegrationBloodTypeService, BloodTypeDTO } from '../../services/integration-blood-type.service';
 import { catchError, Observable, of, Subscription } from 'rxjs';
@@ -36,7 +36,6 @@ export class IntBloodTypeComponent implements OnInit {
 
 
   m_Errors: string[] = [];
-
 
   constructor(private m_IntegrationBloodTypeService: IntegrationBloodTypeService, private m_UserDataService: IntUserDataService) { }
 
