@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup, Validators} from '@angular/forms';
-import { IntegrationBloodTypeService, BloodTypeDTO } from '../services/integration-blood-type.service';
+import { IntegrationBloodTypeService, BloodTypeDTO } from '../../services/integration-blood-type.service';
 import { catchError, of } from 'rxjs';
 
 @Component({
