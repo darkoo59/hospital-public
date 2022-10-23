@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { Observable, tap, switchMap, catchError, of, EMPTY } from "rxjs"
+import { Observable, tap, switchMap, catchError, of, EMPTY, take } from "rxjs"
 import { environment } from "src/environments/environment"
 import { IntUserDataService } from "./int-user-data.service"
 
@@ -12,9 +12,10 @@ export interface LoginDTO {
 @Injectable({
   providedIn: "root"
 })
-export class IntegrationAuthService {
+export class IntAuthService {
   constructor(private m_UserDataService: IntUserDataService, private m_Http: HttpClient) { 
     this.m_UserDataService.m_Token$.pipe(
+      take(1),
       switchMap(token => {
         if (token) return this.getUserData();
         return EMPTY;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms'
-import { IntegrationAuthService, LoginDTO } from '../services/int-auth.service'
+import { IntAuthService, LoginDTO } from '../services/int-auth.service'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { catchError, of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ export class IntLoginComponent {
   m_Form: UntypedFormGroup = this.formInstance;
   m_Errors: string[] = [];
 
-  constructor(private m_IntegrationAuthService: IntegrationAuthService, private m_SnackBar: MatSnackBar, private m_Router: Router) {}
+  constructor(private m_IntegrationAuthService: IntAuthService, private m_SnackBar: MatSnackBar, private m_Router: Router) {}
 
   onSubmit() {
     this.m_Errors.length = 0;
