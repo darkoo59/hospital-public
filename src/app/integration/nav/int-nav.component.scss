@@ -1,3 +1,12 @@
 .nav-active{
-  border-right: 5px solid #673ab7;
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #673ab7;
+  }
 }
