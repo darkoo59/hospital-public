@@ -7,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  //PageTitle: string = "Welcome Page";
-
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
 
