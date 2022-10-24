@@ -1,11 +1,11 @@
-<div>
+<div style="padding-left: 30px; padding-top: 30px" >
     <button color="primary" mat-raised-button>Patient page</button>
     <button color="primary" mat-raised-button>Manager page</button>
     <button color="primary" mat-raised-button>Sign in</button>
     <button color="primary" mat-raised-button>Register</button>
 </div>
 
-<div class="panel panel-primary">
+<div class="panel panel-primary" style="padding-top: 30px; padding-left: 20px;">
     <div class="panel-heading">
         Feedback List
     </div>
@@ -36,13 +36,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <tr *ngFor="let feedback of feedbacks">
+                        <td>
+                            {{feedback.feedbackDate}}
+                        </td>
+                        <td>
+                            {{feedback.feedbackId}}
+                        </td>
+                        <td>
+                            {{feedback.feedbackText}}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
-
         </div>
-
-
     </div>
 </div>
 
