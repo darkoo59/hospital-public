@@ -5,11 +5,15 @@ import { HomeComponent } from './home/home.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

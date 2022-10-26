@@ -1,6 +1,29 @@
-button{
+a{
     margin-right: 1rem;
 }
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+  }
+
+
+.justify-content-center {
+    justify-content: center !important;
+  }
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+  }
+
+.text-center {
+    text-align: center !important;
+  }
 
 .navbar {
     position: relative;
@@ -11,7 +34,13 @@ button{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  .navbar > .container {
+  .navbar > .container,
+  .navbar > .container-fluid,
+  .navbar > .container-sm,
+  .navbar > .container-md,
+  .navbar > .container-lg,
+  .navbar > .container-xl,
+  .navbar > .container-xxl {
     display: flex;
     flex-wrap: inherit;
     align-items: center;
