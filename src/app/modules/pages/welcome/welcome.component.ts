@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IFeedback } from './feedback';
+import { WelcomePageService } from './welcome.service';
 
 @Component({
   selector: 'app-welcome',
@@ -7,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  //PageTitle: string = "Welcome Page";
+  feedbacks: IFeedback[] = [];
 
-  constructor() { }
-
+  constructor(private _welcomePageService: WelcomePageService) {
+  }
+ 
   ngOnInit(): void {
+    this.feedbacks = this._welcomePageService.getFeedbacks();
   }
 
 }

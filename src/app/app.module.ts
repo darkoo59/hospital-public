@@ -8,6 +8,7 @@ import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IntAuthInterceptor } from './integration/services/int-auth-interceptor.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { IntAuthInterceptor } from './integration/services/int-auth-interceptor.
     HttpClientModule,
     MaterialModule,
     PagesModule,
-    HospitalModule
+    HospitalModule,
+    MatButtonModule
   ],
   providers: [
     {
