@@ -3,6 +3,7 @@ import { FormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import { IntegrationBloodTypeService, BloodTypeDTO } from '../../services/integration-blood-type.service';
 import { catchError, Observable, of, Subscription } from 'rxjs';
 import { IntUserDataService, ThirdPartyUser } from '../../services/int-user-data.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-int-blood-type',
@@ -37,7 +38,7 @@ export class IntBloodTypeComponent implements OnInit {
 
   m_Errors: string[] = [];
 
-  constructor(private m_IntegrationBloodTypeService: IntegrationBloodTypeService, private m_UserDataService: IntUserDataService) { }
+  constructor(private m_IntegrationBloodTypeService: IntegrationBloodTypeService, private m_UserDataService: IntUserDataService, private m_SnackBar: MatSnackBar) { }
 
   onSubmit() : void {
     this.m_Errors.length = 0
@@ -68,7 +69,12 @@ export class IntBloodTypeComponent implements OnInit {
         }
         return of();
       }))
-      .subscribe(_ => {
+      .subscribe(data => {
+        if (data) {
+          this.m_SnackBar.open(`Blood of the desired type is available`, `Close`);
+        } else {
+          this.m_SnackBar.open(`Blood of the desired type is not available`, `Close`);
+        }
       });
   }
 
