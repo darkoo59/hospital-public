@@ -26,14 +26,12 @@ export class IntSettingsComponent {
         .pipe(
           catchError((res: any) => {
             console.log(res.error);
-            const errors = res.error.errors;
-            if (!errors) {
-              this.m_Errors.push(res.error);
+            const error = res.error;
+            if(error && error.message){
+              this.m_Errors.push(error.message);
               return EMPTY;
             }
-            for (let e in errors) {
-              this.m_Errors.push(errors[e]);
-            }
+            this.m_Errors.push(error)
             return EMPTY;
           })
         ).subscribe((_: any) => {
