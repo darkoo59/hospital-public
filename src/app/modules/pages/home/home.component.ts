@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Feedback } from './model/feedback.model';
+import { FeedbackService } from './services/feedback.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent{
 
-  constructor() { }
+ feedbackForm = new FormGroup({
+    feedbackText: new FormControl('', Validators.maxLength(500)),
+    anonymity: new FormControl(),
+    privatisation: new FormControl()
+  })
+  
+  public feedback: Feedback = new Feedback();
 
-  ngOnInit(): void {
+  constructor(private feedbackService: FeedbackService) { }
+
+  public createFeedback() {
+    this.feedbackService.createFeedback(this.feedback).subscribe(res => {});
   }
 
 }
