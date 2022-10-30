@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms'
-import { IntegrationAuthService, LoginDTO } from '../services/integration-auth.service'
+import { IntAuthService, LoginDTO } from '../services/int-auth.service'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { catchError, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-int-login',
@@ -13,12 +14,11 @@ export class IntLoginComponent {
   m_Form: UntypedFormGroup = this.formInstance;
   m_Errors: string[] = [];
 
-  constructor(private m_IntegrationAuthService: IntegrationAuthService, private m_SnackBar: MatSnackBar) {}
+  constructor(private m_IntegrationAuthService: IntAuthService, private m_SnackBar: MatSnackBar, private m_Router: Router) {}
 
   onSubmit() {
     this.m_Errors.length = 0;
     const dto: LoginDTO = this.m_Form.getRawValue();
-    this.m_Form.updateValueAndValidity();
     if (!this.m_Form.valid) return;
 
     this.m_IntegrationAuthService.login(dto)
@@ -38,7 +38,7 @@ export class IntLoginComponent {
       }))
       .subscribe(_ => {
         this.m_SnackBar.open(`Third-party user logged in`, 'close', { duration: 4000 });
-        this.m_Form.reset();
+        this.m_Router.navigate(['/integration']);
       });
   }
 

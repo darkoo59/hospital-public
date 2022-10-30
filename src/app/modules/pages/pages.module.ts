@@ -10,11 +10,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MaterialModule } from 'src/app/material/material.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
     HomeComponent,
     WelcomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +33,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatTooltipModule,
     MatSnackBarModule
+    MaterialModule,
+    BrowserModule
   ]
 })
 export class PagesModule { }
