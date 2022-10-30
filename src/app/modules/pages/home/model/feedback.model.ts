@@ -4,6 +4,7 @@ export class Feedback {
     anonymity: boolean = false;
     user: string = 'Korisnik'
     privatisation: boolean = false;
+    date: string = '';
 
     public constructor(obj?: any) {
         if (obj) {
@@ -12,6 +13,7 @@ export class Feedback {
             this.anonymity = obj.anonymity;
             this.user = obj.user;   
             this.privatisation = obj.privatisation;      
+            this.date = obj.date;
         }
     }
 }

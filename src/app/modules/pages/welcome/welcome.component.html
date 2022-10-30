@@ -34,11 +34,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>
-                            <button class="btn btn-primary">
-                                Show Date of Feedback
-                            </button>
-                        </th>
                         <th>Feedback ID</th>
                         <th>Text</th>
                     </tr>
@@ -46,13 +41,13 @@
                 <tbody>
                     <tr *ngFor="let feedback of feedbacks">
                         <td>
-                            {{feedback.feedbackDate | date:"medium"}}
+                            {{feedback.date | date:"medium"}}
                         </td>
                         <td>
-                            {{feedback.feedbackId}}
+                            {{feedback.id}}
                         </td>
                         <td>
-                            {{feedback.feedbackText}}
+                            {{feedback.textt}}
                         </td>
                     </tr>
                 </tbody>

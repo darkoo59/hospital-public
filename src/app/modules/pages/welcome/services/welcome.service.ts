@@ -1,16 +1,18 @@
-import { HttpClient} from "@angular/common/http";
+import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { IFeedback } from "../feedback";
+import { Feedback } from "../../home/model/feedback.model";
 
 @Injectable()
 export class WelcomePageService {
 
-    private _feedbacksPublicURL = 'http://localhost:4200/api/feedbacksPublic';
+    apiHost: string = 'http://localhost:16177/';
+    headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    constructor(private _http: HttpClient) {}
 
-    getFeedbacks() : Observable<IFeedback[]> {
-        return this._http.get<IFeedback[]>(this._feedbacksPublicURL);
+    constructor(private http: HttpClient) {}
+
+    getFeedbacksPublic() : Observable<Feedback[]> {
+        return this.http.get<Feedback[]>(this.apiHost + 'api/feedbacksPublic', {headers: this.headers});
     }
 }

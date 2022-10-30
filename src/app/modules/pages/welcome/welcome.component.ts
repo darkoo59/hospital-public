@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Feedback } from '../home/model/feedback.model';
 import { WelcomePageService } from './services/welcome.service';
 
 @Component({
@@ -6,15 +7,21 @@ import { WelcomePageService } from './services/welcome.service';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit{
 
-  feedbacks: any;
+  public feedbacks: Feedback[] = [];
 
   constructor(private _welcomePageService: WelcomePageService) {
   }
- 
+
   ngOnInit(): void {
-    // this._welcomePageService.getFeedbacks().subscribe(res => {this.feedbacks = res});
+    this.getFeedbacksPublic();
   }
+
+  public getFeedbacksPublic() {
+    this._welcomePageService.getFeedbacksPublic().subscribe(res => {
+      this.feedbacks = res;
+    });
+   }
 
 }
