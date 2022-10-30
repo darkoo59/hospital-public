@@ -1,7 +1,7 @@
 import { HttpClient} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { IFeedback } from "./feedback";
+import { IFeedback } from "../feedback";
 
 @Injectable()
 export class WelcomePageService {
