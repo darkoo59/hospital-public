@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import { IntegrationBloodTypeService, BloodTypeDTO } from '../../services/integration-blood-type.service';
-import { catchError, Observable, of, Subscription } from 'rxjs';
-import { IntUserDataService, ThirdPartyUser } from '../../services/int-user-data.service';
-import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
+import { catchError, EMPTY, Subscription } from 'rxjs';
+import { IntUserDataService } from '../../services/int-user-data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-int-blood-type',
@@ -57,17 +57,13 @@ export class IntBloodTypeComponent implements OnInit {
     this.m_IntegrationBloodTypeService.checkBloodTypeAvailability(dto)
       .pipe(catchError(res => {
         console.log(res);
-        const errors = res.error.errors;
-
-        if (!errors) {
-          this.m_Errors.push(res.error);
-          return of();
+        const error = res.error;
+        if(error && error.message){
+          this.m_Errors.push(error.message);
+          return EMPTY;
         }
-
-        for (let e in errors) {
-          this.m_Errors.push(errors[e]);
-        }
-        return of();
+        this.m_Errors.push(error)
+        return EMPTY;
       }))
       .subscribe(data => {
         if (data) {
