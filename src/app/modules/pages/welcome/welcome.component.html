@@ -25,21 +25,6 @@
     </div>
 </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="panel panel-primary" style="padding-top: 30px; padding-left: 20px;">
     <div class="panel-heading">
         <h1> Feedback List </h1>
@@ -49,11 +34,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>
-                            <button class="btn btn-primary">
-                                Show Date of Feedback
-                            </button>
-                        </th>
                         <th>Feedback ID</th>
                         <th>Text</th>
                     </tr>
@@ -61,13 +41,10 @@
                 <tbody>
                     <tr *ngFor="let feedback of feedbacks">
                         <td>
-                            {{feedback.feedbackDate | date:"medium"}}
+                            {{feedback.id}}
                         </td>
                         <td>
-                            {{feedback.feedbackId}}
-                        </td>
-                        <td>
-                            {{feedback.feedbackText}}
+                            {{feedback.textt}}
                         </td>
                     </tr>
                 </tbody>

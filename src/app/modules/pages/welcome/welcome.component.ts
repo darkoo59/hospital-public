@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { IFeedback } from './feedback';
-import { WelcomePageService } from './welcome.service';
+import { Feedback } from '../home/model/feedback.model';
+import { WelcomePageService } from './services/welcome.service';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit{
 
-  feedbacks: IFeedback[] = [];
+  public feedbacks: Feedback[] = [];
 
   constructor(private _welcomePageService: WelcomePageService) {
   }
- 
+
   ngOnInit(): void {
-    this.feedbacks = this._welcomePageService.getFeedbacks();
+    this.getFeedbacksPublic();
   }
+
+  public getFeedbacksPublic() {
+    this._welcomePageService.getFeedbacksPublic().subscribe(res => {
+      this.feedbacks = res;
+    });
+   }
 
 }
