@@ -13,6 +13,6 @@ export class WelcomePageService {
     constructor(private http: HttpClient) {}
 
     getFeedbacksPublic() : Observable<Feedback[]> {
-        return this.http.get<Feedback[]>(this.apiHost + 'api/feedbacksPublic', {headers: this.headers});
+        return this.http.get<Feedback[]>(this.apiHost + 'api/feedbacks/feedbacksPublic', {headers: this.headers});
     }
 }
