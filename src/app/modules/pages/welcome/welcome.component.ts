@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IFeedback } from './feedback';
 import { WelcomePageService } from './welcome.service';
 
 @Component({
@@ -9,13 +8,13 @@ import { WelcomePageService } from './welcome.service';
 })
 export class WelcomeComponent implements OnInit {
 
-  feedbacks: IFeedback[] = [];
+  feedbacks: any;
 
   constructor(private _welcomePageService: WelcomePageService) {
   }
  
   ngOnInit(): void {
-    this.feedbacks = this._welcomePageService.getFeedbacks();
+    // this._welcomePageService.getFeedbacks().subscribe(res => {this.feedbacks = res});
   }
 
 }
