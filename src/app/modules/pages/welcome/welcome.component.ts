@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WelcomePageService } from './welcome.service';
+import { WelcomePageService } from './services/welcome.service';
 
 @Component({
   selector: 'app-welcome',

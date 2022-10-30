@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WelcomePageService } from './modules/pages/welcome/welcome.service';
+import { WelcomePageService } from './modules/pages/welcome/services/welcome.service';
 
 @Component({
   selector: 'app-root',
