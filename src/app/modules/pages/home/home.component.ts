@@ -21,6 +21,7 @@ export class HomeComponent{
   constructor(private feedbackService: FeedbackService) { }
 
   public createFeedback() {
+    if(this.feedback.anonymity == true) this.feedback.user = "Anonymus";
     this.feedbackService.createFeedback(this.feedback).subscribe(res => {});
   }
 
