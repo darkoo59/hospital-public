@@ -45,9 +45,11 @@ export class IntBloodTypeComponent implements OnInit {
     const dto: BloodTypeDTO = {
       bloodType: +this.form.get('blood-type-select')?.value, 
       apiKey: this.form.get('keyInput')?.value,
-      bloodQuantity: this.form.get('blood-quantity')?.value | 0,
+      bloodQuantity: this.form.get('blood-quantity')?.value,
       email: this.form.get('logged-user')?.value
     }
+
+    if (dto.bloodQuantity == null) dto.bloodQuantity = 0
 
     if (this.form.get(['quantity-check'])?.value === false) dto.bloodQuantity = 0 
     
