@@ -20,7 +20,7 @@ export class IntegrationBloodTypeService {
   checkBloodTypeAvailability(bloodTypeDTO: BloodTypeDTO): Observable<any> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('bloodType', bloodTypeDTO.bloodType);
-    queryParams = queryParams.append('quantity', bloodTypeDTO.bloodQuantity);
+    queryParams = queryParams.append('bloodQuantity', bloodTypeDTO.bloodQuantity);
     queryParams = queryParams.append('userEmail', bloodTypeDTO.email);
 
     const httpOptions = {

@@ -2,7 +2,7 @@ export class Feedback {
     id: number = 0;
     textt: string = '';
     anonymity: boolean = false;
-    user: string = 'Korisnik'
+    user: string = 'Name Surname'
     privatisation: boolean = false;
     date: string = '';
 
