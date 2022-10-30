@@ -25,8 +25,8 @@ export class IntegrationBloodTypeService {
 
     const httpOptions = {
       headers: new HttpHeaders().set('apiKey', bloodTypeDTO.apiKey),
-      queryParams
+      params: queryParams
     }
-    return this.http.get<boolean>(`${environment.integrationApiUrl}/BloodType`, httpOptions);
+    return this.http.get(`${environment.integrationApiUrl}/BloodType`, httpOptions);
   }
 }
