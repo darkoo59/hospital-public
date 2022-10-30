@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Feedback } from './model/feedback.model';
+import { FeedbackService } from './services/feedback.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +10,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class HomeComponent{
 
-  feedbackForm = new FormGroup({
+ feedbackForm = new FormGroup({
     feedbackText: new FormControl('', Validators.maxLength(500)),
     anonymity: new FormControl(),
     privatisation: new FormControl()
   })
-    
-  constructor() { }
+  
+  public feedback: Feedback = new Feedback();
+
+  constructor(private feedbackService: FeedbackService) { }
+
+  public createFeedback() {
+    this.feedbackService.createFeedback(this.feedback).subscribe(res => {});
+  }
 
 }
