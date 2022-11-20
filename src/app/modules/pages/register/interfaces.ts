@@ -13,3 +13,12 @@ export interface RegisterRequest {
     status: number;
     message: string;
   }
+
+  export interface AllergensResponse{
+    name: string;
+  }
+
+  export interface BloodType{
+    value: string;
+    viewValue: string;
+  }

@@ -50,6 +50,30 @@
             *ngIf="this.registerForm.get('passwordConfirm')?.dirty && this.registerForm.hasError('passwordsNotMatching')">
             Passwords are not matching!</mat-error>
   
+          <mat-form-field>
+            <mat-select placeholder="Allergens" formControlName="allergens" [(value)]="selectedAllergens" multiple>
+              <mat-option *ngFor="let allergen of allergensList" [value]="allergen">{{allergen}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Blood Type</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let bloodType of bloodTypes" [value]="bloodType.value">
+                {{bloodType.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+
+
+
+
+
+
+
+
           <div class="button">
             <!-- Button is disabled(not clickable), if our RegisterForm contains Validation Errors -->
             <button type="submit" mat-button [disabled]="!registerForm.valid">Register</button>
