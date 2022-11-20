@@ -22,3 +22,9 @@ export interface RegisterRequest {
     value: string;
     viewValue: string;
   }
+
+  export interface DoctorsResponse{
+    id: number;
+    name: string;
+    surname: string;
+  }

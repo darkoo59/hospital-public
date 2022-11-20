@@ -1,12 +1,12 @@
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { AllergensResponse } from "../interfaces";
+import { AllergensResponse, DoctorsResponse } from "../interfaces";
 
 @Injectable({
     providedIn: 'root'
   })
-  export class AllergenService {
+  export class DoctorService {
   
     apiHost: string = 'http://localhost:16177/';
     headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -15,8 +15,8 @@ import { AllergensResponse } from "../interfaces";
       private http: HttpClient
     ) { }
   
-    getAllergens(): Observable<AllergensResponse> {
-      return this.http.get<AllergensResponse>(this.apiHost + 'api/allergens', {headers: this.headers})
+    getDoctors(): Observable<DoctorsResponse> {
+      return this.http.get<DoctorsResponse>(this.apiHost + 'api/doctors', {headers: this.headers})
     }
   
     

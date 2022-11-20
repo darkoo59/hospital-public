@@ -5,6 +5,7 @@ import { tap } from 'rxjs';
 import { CustomValidators } from './custom-validator';
 import { AllergensResponse, BloodType } from './interfaces';
 import { AllergenService } from './services/allergen.service';
+import { DoctorService } from './services/doctor.service';
 import { AuthService } from './services/register.service';
 
 @Component({
@@ -38,16 +39,20 @@ export class RegisterComponent implements OnInit{
     {value: 'O+-6', viewValue: 'O+'},
     {value: 'O--7', viewValue: 'O-'},
   ];
+  doctors: any = [];
 
   constructor( 
     private router: Router,
     private authService: AuthService,
-    private allergenService: AllergenService
+    private allergenService: AllergenService,
+    private doctorService: DoctorService
     ) { }
 
   ngOnInit(): void {
     this.allergenService.getAllergens()
       .subscribe( res => this.allergensList = res);
+    this.doctorService.getDoctors()
+      .subscribe( res => this.doctors = res);
   }
 
   register() {

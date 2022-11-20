@@ -17,10 +17,7 @@ export class AuthService {
     private http: HttpClient,
     private snackbar: MatSnackBar,
   ) { }
-
-  /*
-   The `..of()..` can be removed if you have a real backend, at the moment, this is just a faked response
-  */
+  
   register(registerRequest: any): Observable<RegisterResponse> {
     
     return this.http.post<RegisterResponse>(this.apiHost + 'api/Patients', registerRequest, {headers: this.headers}).pipe(
@@ -29,11 +26,6 @@ export class AuthService {
       }))
     )
   }
-    // return of(fakeRegisterResponse).pipe(
-    //   tap((res: RegisterResponse) => this.snackbar.open(`User created successfully`, 'Close', {
-    //     duration: 2000, horizontalPosition: 'right', verticalPosition: 'top'
-    //   })),
-    // );
 
   
 }
