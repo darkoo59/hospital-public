@@ -8,6 +8,7 @@ import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IntAuthInterceptor } from './integration/services/int-auth-interceptor.service';
+import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.service';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
@@ -28,6 +29,11 @@ import { MatButtonModule } from '@angular/material/button';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: IntAuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
       multi: true
     }
   ],
