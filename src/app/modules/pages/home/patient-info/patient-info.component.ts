@@ -1,25 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { PatientInfoService } from './patient-info.service';
 
 export interface PatientInfo {
   name: string;
   surname: string;
-  jmbg: number;
-  email: string;
-  address: string;
-  bloodType: string;
-  allergens: string;
 }
-
-const ELEMENT_DATA: PatientInfo[] = [
-  {name: 'Petar', surname: 'Petrović', jmbg: 2506997202356, email: 'peropetar25@gmail.com', address: 'Bulevar Oslobođenja 37', bloodType: 'A+', allergens: 'Penicilin, Kikiriki'}
-];
 
 @Component({
   selector: 'app-patient-info',
   templateUrl: './patient-info.component.html',
   styleUrls: ['./patient-info.component.css']
 })
-export class PatientInfoComponent {
-  displayedColumns: string[] = ['name', 'surname', 'jmbg', 'email', 'address', 'bloodType', 'allergens'];
-  dataSource = ELEMENT_DATA;
+export class PatientInfoComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'surname'];
+  public patient: PatientInfo = {name:"Petar", surname:"Petrovic"};
+  public patientInfo: PatientInfo[] = [];
+  public dataSource = new MatTableDataSource(this.patientInfo);
+
+  constructor(private _patientInfoService: PatientInfoService, private http:HttpClient) {}
+
+  ngOnInit(): void {
+    this.getPatientInfo();
+  }
+
+  public getPatientInfo(){
+    this._patientInfoService.getById().subscribe(res => {
+      this.patient = res;
+      this.patientInfo.push(this.patient);
+      this.dataSource = new MatTableDataSource(this.patientInfo);
+    })
+  }
 }
