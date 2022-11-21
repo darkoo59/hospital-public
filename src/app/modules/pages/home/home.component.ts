@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Feedback } from './model/feedback.model';
 import { FeedbackService } from './services/feedback.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../login/log-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +21,7 @@ export class HomeComponent{
   
   public feedback: Feedback = new Feedback();
 
-  constructor(private feedbackService: FeedbackService, private _snackBar : MatSnackBar) { }
+  constructor(private m_Router: Router, private m_AuthService: AuthService,private feedbackService: FeedbackService, private _snackBar : MatSnackBar) { }
 
   public createFeedback() {
     if(this.feedback.anonymity == true) this.feedback.user = "Anonymus";
@@ -31,5 +33,8 @@ export class HomeComponent{
       3000);
     });
   }
-
+  public logout(){
+    this.m_AuthService.logout();
+    this.m_Router.navigate(['/login']);
+  }
 }
