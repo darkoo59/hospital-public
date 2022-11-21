@@ -52,7 +52,7 @@
   
           <mat-form-field>
             <mat-label>Blood Type</mat-label>
-            <mat-select>
+            <mat-select formControlName="bloodType">
               <mat-option *ngFor="let bloodType of bloodTypes" [value]="bloodType.value">
                 {{bloodType.viewValue}}
               </mat-option>
@@ -61,14 +61,14 @@
 
           <mat-form-field>
             <mat-select placeholder="Allergens" formControlName="allergens" [(value)]="selectedAllergens" multiple>
-              <mat-option *ngFor="let allergen of allergensList" [value]="allergen">{{allergen.name}}</mat-option>
+              <mat-option *ngFor="let allergen of allergensList" [value]="allergen.allergenId">{{allergen.name}}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Choose doctor</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+            <mat-select formControlName="doctorsId">
+              <mat-option *ngFor="let doctor of doctors" [value]="doctor.doctorId">
                 {{doctor.name + " " + doctor.surname}}
               </mat-option>
             </mat-select>

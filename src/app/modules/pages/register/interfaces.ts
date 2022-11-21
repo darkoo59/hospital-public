@@ -4,6 +4,9 @@ export interface RegisterRequest {
     surname: string;
     password: string;
     IsActivatedAcount: boolean;
+    bloodType: string;
+    allergens: string[];
+    doctorsId: number;
   }
   
   /*
@@ -15,6 +18,7 @@ export interface RegisterRequest {
   }
 
   export interface AllergensResponse{
+    allergenId: number;
     name: string;
   }
 
@@ -24,7 +28,7 @@ export interface RegisterRequest {
   }
 
   export interface DoctorsResponse{
-    id: number;
+    doctorId: number;
     name: string;
     surname: string;
   }

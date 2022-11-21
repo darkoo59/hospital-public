@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs';
-import { RegisterRequest } from '../register/interfaces';
 import { ConfirmService } from './confirm.service';
 
 @Component({

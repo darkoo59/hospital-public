@@ -21,7 +21,9 @@ export class RegisterComponent implements OnInit{
     surname: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required]),
     passwordConfirm: new FormControl(null, [Validators.required]),
-    allergens: new FormControl()
+    bloodType: new FormControl(),
+    allergens: new FormControl(),
+    doctorsId: new FormControl()
   },
   // add custom Validators to the form, to make sure that password and passwordConfirm are equal
   { validators: CustomValidators.passwordsMatching }
