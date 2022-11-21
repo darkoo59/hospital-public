@@ -16,7 +16,7 @@ import { AllergensResponse, DoctorsResponse } from "../interfaces";
     ) { }
   
     getDoctors(): Observable<DoctorsResponse> {
-      return this.http.get<DoctorsResponse>(this.apiHost + 'api/doctor', {headers: this.headers})
+      return this.http.get<DoctorsResponse>(this.apiHost + 'api/Doctor', {headers: this.headers})
     }
   
     

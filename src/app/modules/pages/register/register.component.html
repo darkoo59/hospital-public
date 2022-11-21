@@ -61,7 +61,7 @@
 
           <mat-form-field>
             <mat-select placeholder="Allergens" formControlName="allergens" [(value)]="selectedAllergens" multiple>
-              <mat-option *ngFor="let allergen of allergensList" [value]="allergen">{{allergen}}</mat-option>
+              <mat-option *ngFor="let allergen of allergensList" [value]="allergen">{{allergen.name}}</mat-option>
             </mat-select>
           </mat-form-field>
 
