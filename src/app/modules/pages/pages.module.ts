@@ -14,13 +14,16 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MatTableModule } from '@angular/material/table';
+import { PatientInfoComponent } from './home/patient-info/patient-info.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     WelcomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PatientInfoComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { RegisterComponent } from './register/register.component';
     MatTooltipModule,
     MatSnackBarModule,
     MaterialModule,
-    BrowserModule
+    BrowserModule,
+    MatTableModule
   ]
 })
 export class PagesModule { }
