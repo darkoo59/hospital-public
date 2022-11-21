@@ -17,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthComponent } from './auth/auth.component';
+import { MatTableModule } from '@angular/material/table';
+import { PatientInfoComponent } from './home/patient-info/patient-info.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AuthComponent } from './auth/auth.component';
     WelcomeComponent,
     LoginComponent,
     RegisterComponent,
-    AuthComponent
+    AuthComponent,
+    PatientInfoComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,8 @@ import { AuthComponent } from './auth/auth.component';
     MatTooltipModule,
     MatSnackBarModule,
     MaterialModule,
-    BrowserModule
+    BrowserModule,
+    MatTableModule
   ]
 })
 export class PagesModule { }

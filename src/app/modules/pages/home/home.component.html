@@ -1,3 +1,7 @@
+<h1><b>Patient profile</b></h1>
+
+<app-patient-info></app-patient-info>
+
 <section class="form">
     <h1> Feedback form: </h1>
     <form [formGroup]="feedbackForm">
@@ -25,4 +29,7 @@
            <button mat-raised-button class="button-position"> Cancel </button>
         </section>
     </form>
+</section>
+<section>
+    <button mat-raised-button class="button-position" (click)="logout()">Log Out</button>
 </section>
