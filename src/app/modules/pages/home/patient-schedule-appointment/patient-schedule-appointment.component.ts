@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface DoctorBranch {
   value: string;
@@ -65,9 +66,17 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     {value: '5', viewValue: '01.12.2022. 16:00'},
   ];
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar) {}
 
   ngOnInit() {
+  }
+
+  public scheduleAppointment(){
+    this._snackBar.open("Appointment succesfully scheduled.", "Ok");
+      setTimeout(() => {
+        window.location.href="http://localhost:4200/home"
+      }, 
+      3000);
   }
 
 }
