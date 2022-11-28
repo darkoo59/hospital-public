@@ -6,6 +6,11 @@ interface DoctorBranch {
   viewValue: string;
 }
 
+interface Doctor {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-patient-schedule-appointment',
   templateUrl: './patient-schedule-appointment.component.html',
@@ -19,6 +24,9 @@ export class PatientScheduleAppointmentComponent implements OnInit {
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
+  thirdFormGroup = this._formBuilder.group({
+    thirdCtrl: ['', Validators.required],
+  });
 
   isLinear = true;
 
@@ -29,6 +37,15 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     {value: 'colon-3', viewValue: 'Colon and Rectal Surgeons'},
     {value: 'dermatologists-4', viewValue: 'Dermatologists'},
     {value: 'endocrinologists-5', viewValue: 'Endocrinologists'},
+  ];
+
+  doctors: Doctor[] = [
+    {value: 'vukasin-0', viewValue: 'Vukašin Vukašinović'},
+    {value: 'anamarija-1', viewValue: 'Anamarija Marijanović'},
+    {value: 'arsenije-2', viewValue: 'Aresnije Arsenović'},
+    {value: 'magdalena-3', viewValue: 'Magdalena Magdalenović'},
+    {value: 'vasilije-4', viewValue: 'Vasilije Vasilić'},
+    {value: 'viktorija-5', viewValue: 'Viktorija Viktorinović'},
   ];
 
   constructor(private _formBuilder: FormBuilder) {}

@@ -35,13 +35,21 @@
     </form>
   </mat-step>
 
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+  <mat-step [stepControl]="secondFormGroup" label="Pick the doctor">
+    <form [formGroup]="thirdFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Doctor</mat-label>
+        <mat-select formControlName="thirdCtrl">
+          <mat-option *ngFor="let doctor of doctors" [value]="doctor.value">
+                {{doctor.viewValue}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
   </mat-step>
 
   <mat-step>
