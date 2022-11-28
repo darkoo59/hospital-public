@@ -7,7 +7,7 @@
       <ng-template matStepLabel>Pick a date</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Pick a date</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" formControlName="firstCtrl" required>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -18,13 +18,16 @@
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+  <mat-step [stepControl]="secondFormGroup" label="Pick the doctors branch of medicine you need">
     <form [formGroup]="secondFormGroup">
       <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
+        <mat-label>Doctor branch</mat-label>
+        <mat-select formControlName="secondCtrl">
+          <mat-option *ngFor="let docBr of docBrs" [value]="docBr.value">
+                {{docBr.viewValue}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
