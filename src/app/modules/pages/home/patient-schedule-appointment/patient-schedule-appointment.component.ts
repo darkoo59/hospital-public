@@ -11,6 +11,11 @@ interface Doctor {
   viewValue: string;
 }
 
+interface AppointmentTemp {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-patient-schedule-appointment',
   templateUrl: './patient-schedule-appointment.component.html',
@@ -26,6 +31,9 @@ export class PatientScheduleAppointmentComponent implements OnInit {
   });
   thirdFormGroup = this._formBuilder.group({
     thirdCtrl: ['', Validators.required],
+  });
+  fourthFormGroup = this._formBuilder.group({
+    fourthCtrl: ['', Validators.required],
   });
 
   isLinear = true;
@@ -46,6 +54,15 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     {value: 'magdalena-3', viewValue: 'Magdalena Magdalenović'},
     {value: 'vasilije-4', viewValue: 'Vasilije Vasilić'},
     {value: 'viktorija-5', viewValue: 'Viktorija Viktorinović'},
+  ];
+
+  apps: AppointmentTemp[] = [
+    {value: '0', viewValue: '01.12.2022. 11:00'},
+    {value: '1', viewValue: '01.12.2022. 12:00'},
+    {value: '2', viewValue: '01.12.2022. 13:00'},
+    {value: '3', viewValue: '01.12.2022. 14:00'},
+    {value: '4', viewValue: '01.12.2022. 15:00'},
+    {value: '5', viewValue: '01.12.2022. 16:00'},
   ];
 
   constructor(private _formBuilder: FormBuilder) {}

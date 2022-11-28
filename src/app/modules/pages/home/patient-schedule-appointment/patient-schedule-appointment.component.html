@@ -35,7 +35,7 @@
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" label="Pick the doctor">
+  <mat-step [stepControl]="thirdFormGroup" label="Pick the doctor">
     <form [formGroup]="thirdFormGroup">
       <mat-form-field appearance="fill">
         <mat-label>Doctor</mat-label>
@@ -52,13 +52,21 @@
     </form>
   </mat-step>
 
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+  <mat-step [stepControl]="fourthFormGroup" label="Schedule your appointment">
+    <form [formGroup]="fourthFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Appointment</mat-label>
+        <mat-select formControlName="fourthCtrl">
+          <mat-option *ngFor="let app of apps" [value]="app.value">
+                {{app.viewValue}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button>Schedule</button>
+      </div>
+    </form>
   </mat-step>
 
 </mat-stepper>
