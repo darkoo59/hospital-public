@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-patient-schedule-appointment',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientScheduleAppointmentComponent implements OnInit {
 
-  constructor() { }
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  isLinear = true;
+
+  constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
   }

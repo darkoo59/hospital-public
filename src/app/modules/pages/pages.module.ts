@@ -19,6 +19,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { AuthComponent } from './auth/auth.component';
 import { MatTableModule } from '@angular/material/table';
 import { PatientInfoComponent } from './home/patient-info/patient-info.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { PatientScheduleAppointmentComponent } from './home/patient-schedule-appointment/patient-schedule-appointment.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { PatientInfoComponent } from './home/patient-info/patient-info.component
     LoginComponent,
     RegisterComponent,
     AuthComponent,
-    PatientInfoComponent
+    PatientInfoComponent,
+    PatientScheduleAppointmentComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +50,10 @@ import { PatientInfoComponent } from './home/patient-info/patient-info.component
     MatSnackBarModule,
     MaterialModule,
     BrowserModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class PagesModule { }
