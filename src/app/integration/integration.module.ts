@@ -6,9 +6,9 @@ import { IntegrationRoutingModule } from "./integration-routing.module";
 import { IntegrationComponent } from "./integration.component";
 import { IntBloodTypeComponent } from "./pages/blood-types/int-blood-type.component";
 import { RouterModule } from "@angular/router";
-import { IntNavComponent } from "./nav/int-nav.component";
+import { IntNavComponent } from "./components/nav/int-nav.component";
 import { IntHomeComponent } from "./pages/home/int-home.component";
-import { IntLoginComponent } from "./login/int-login.component";
+import { IntLoginComponent } from "./components/login/int-login.component";
 import { NgLetModule } from 'ng-let';
 import { IntSettingsComponent } from "./pages/settings/int-settings.component";
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms'
-import { IntAuthService, LoginDTO } from '../services/int-auth.service'
+import { IntAuthService, LoginDTO } from '../../services/int-auth.service'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { catchError, of } from 'rxjs';
 import { Router } from '@angular/router';

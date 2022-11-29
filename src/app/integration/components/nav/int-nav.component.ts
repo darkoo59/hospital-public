@@ -23,6 +23,10 @@ export class IntNavComponent implements OnInit {
     {
       path: 'settings',
       title: 'Settings'
+    },
+    {
+      path: 'eq-tender',
+      title: 'Equipment Tenders'
     }
   ];
 

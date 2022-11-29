@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { IntAuthGuard } from "./integration/guards/int-auth.guard";
 import { IntUnuthGuard } from "./integration/guards/int-unauth.guard";
-import { IntLoginComponent } from "./integration/login/int-login.component";
+import { IntLoginComponent } from "./integration/components/login/int-login.component";
 import { AuthComponent } from "./modules/pages/auth/auth.component";
 import { HomeComponent } from "./modules/pages/home/home.component";
 import { LoginComponent } from "./modules/pages/login/login.component";
