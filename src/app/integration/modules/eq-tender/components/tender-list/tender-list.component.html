@@ -9,5 +9,8 @@
       <p>{{tender.description}}</p>
       <tender-item-list *ngIf="tender.requirements && tender.requirements.length != 0" [i_Items]="tender.requirements"></tender-item-list>
     </mat-card-content>
+    <mat-card-actions align="end">
+      <button *ngIf="!isInPast(tender.expiresOn)" mat-flat-button color="accent" [routerLink]="['..', tender.id]">Make Offer</button>
+    </mat-card-actions>
   </mat-card>
 </div>

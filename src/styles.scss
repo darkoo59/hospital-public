@@ -2,6 +2,9 @@
 
 section{
   padding:30px;
+  &.plain{
+    padding:0px;
+  }
 }
 
 .page-container {

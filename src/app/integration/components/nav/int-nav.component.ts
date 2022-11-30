@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-interface NavRoute {
+export interface NavRoute {
   path: string;
   title: string;
 }

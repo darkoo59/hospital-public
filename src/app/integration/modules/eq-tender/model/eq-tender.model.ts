@@ -4,6 +4,7 @@ export interface TenderItem {
 }
 
 export interface EqTender {
+  id: number;
   title: string;
   expiresOn: Date;
   description: string;
