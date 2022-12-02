@@ -11,9 +11,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     MatToolbarModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ],
   exports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     MatToolbarModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

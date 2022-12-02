@@ -12,6 +12,8 @@ import { TendersComponent } from "./pages/tenders.component";
 import { ApplicationsComponent } from "./pages/applications/applications.component";
 import { TenderApplyComponent } from "./pages/tender-apply/tender-apply.component";
 import { AllTendersComponent } from "./pages/all-tenders/all-tenders.component";
+import { OfferListComponent } from "./components/offer-list/offer-list.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   providers: [EqTenderService],
@@ -22,14 +24,16 @@ import { AllTendersComponent } from "./pages/all-tenders/all-tenders.component";
     TendersComponent,
     AllTendersComponent,
     ApplicationsComponent,
-    TenderApplyComponent
+    TenderApplyComponent,
+    OfferListComponent
   ],
   imports: [
     CommonModule,
     EqTenderRoutingModule,
     MaterialModule,
     PageLoaderModule,
-    NgLetModule
+    NgLetModule,
+    ReactiveFormsModule
   ],
   exports: []
 })

@@ -11,7 +11,7 @@ export class TenderApplyComponent {
   m_TenderId: number = -1;
   m_Loading: boolean = true;
 
-  m_Params$ = this.m_Route.paramMap.pipe(
+  m_Tender$ = this.m_Route.paramMap.pipe(
     switchMap(params => {
       let id: any = params.get('id');
       id = parseInt(id);
