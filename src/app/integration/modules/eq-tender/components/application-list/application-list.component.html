@@ -1,0 +1,38 @@
+<div *ngLet="{dataList: m_Data$ | async, cancel: cancelApplication$ | async} as vm">
+  <div *ngIf="vm.dataList && vm.dataList.length != 0" class="list">
+    <mat-card class="card" *ngFor="let application of vm.dataList">
+      <mat-card-header>
+        <mat-card-title>{{application.equipmentTender.title}}</mat-card-title>
+        <mat-card-subtitle *ngIf="!application.equipmentTender.expiresOn" style="color: green;">expires: never
+        </mat-card-subtitle>
+        <mat-card-subtitle
+          *ngIf="application.equipmentTender.expiresOn && !isInPast(application.equipmentTender.expiresOn)"
+          style="color: green;">expires on:
+          {{application.equipmentTender.expiresOn | date:'medium'}}</mat-card-subtitle>
+        <mat-card-subtitle
+          *ngIf="application.equipmentTender.expiresOn && isInPast(application.equipmentTender.expiresOn)"
+          style="color: red;">expired on:
+          {{application.equipmentTender.expiresOn | date:'medium'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{application.equipmentTender.description}}</p>
+        <div *ngIf="application.note">
+          <p style="margin-bottom: 4px;"><b>NOTE: </b></p>
+          <p>{{application.note}}</p>
+        </div>
+        <p><b>PRICE: <span style="color: green;">{{application.totalCost}}&nbsp;EUR</span></b></p>
+        <offer-list *ngIf="application.tenderOffers && application.tenderOffers.length != 0"
+          [i_Items]="application.tenderOffers">
+        </offer-list>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button *ngIf="!isInPast(application.equipmentTender.expiresOn)" mat-button color="warn"
+          (click)="cancelApplication$.next(application.id)">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!vm.dataList || vm.dataList.length == 0">
+    Nothing to display...
+  </div>
+</div>

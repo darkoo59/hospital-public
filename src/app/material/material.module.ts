@@ -11,12 +11,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { A11yModule } from '@angular/cdk/a11y';
 
 
 @NgModule({
-  declarations: [],
+  providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }],
   imports: [
     CommonModule,
     MatInputModule,
@@ -31,7 +35,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatDialogModule,
+    A11yModule
   ],
   exports: [
     CommonModule,
@@ -47,7 +55,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatDialogModule,
+    A11yModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

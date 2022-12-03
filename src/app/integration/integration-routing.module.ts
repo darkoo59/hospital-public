@@ -22,6 +22,10 @@ const routes: Routes = [
         path: 'settings',
         component: IntSettingsComponent
       },
+      {
+        path: 'eq-tender',
+        loadChildren: () => import('./modules/eq-tender/eq-tender.module').then(m => m.EqTenderModule)
+      },
       { path: '**', redirectTo: 'home', pathMatch: 'full' },
     ]
   }
