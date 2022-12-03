@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Observable, tap } from "rxjs";
+import { Observable } from "rxjs";
 import { EqTender } from "../../model/eq-tender.model";
 import { EqTenderService } from "../../services/eq-tender.service";
 
@@ -14,6 +14,7 @@ export class TenderListComponent {
   constructor(private m_EqTenderService: EqTenderService) { }
 
   isInPast(date: Date): boolean {
+    if(!date) return false;
     var now = new Date();
     var n = new Date(date)
     now.setHours(0,0,0,0);

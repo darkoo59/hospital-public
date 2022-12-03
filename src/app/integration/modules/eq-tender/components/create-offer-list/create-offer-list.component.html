@@ -39,7 +39,11 @@
               <input type="number" matInput placeholder="Ex. 512" formControlName="cost">
               <mat-error
                 *ngIf="getMiniFormGroup(req.id).controls['cost'].hasError('max') && !getMiniFormGroup(req.id).controls['cost'].hasError('required')">
-                Maximum value for cost is 100000000 EUR
+                Maximum value for the cost is 100000000 EUR
+              </mat-error>
+              <mat-error
+                *ngIf="getMiniFormGroup(req.id).controls['cost'].hasError('min') && !getMiniFormGroup(req.id).controls['cost'].hasError('required')">
+                Minimum value for the cost is 0 EUR
               </mat-error>
               <mat-error *ngIf="getMiniFormGroup(req.id).controls['cost'].hasError('required')">
                 Cost is <strong>required</strong>

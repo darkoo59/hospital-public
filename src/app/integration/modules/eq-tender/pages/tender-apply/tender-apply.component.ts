@@ -15,10 +15,10 @@ export class TenderApplyComponent {
     switchMap(params => {
       let id: any = params.get('id');
       id = parseInt(id);
-  
-      if (isNaN(id) || id < 0) 
+
+      if (isNaN(id) || id < 0)
         throw new Error("Invalid ID");
-      
+
       this.m_TenderId = id;
       return this.m_EqTenderService.fetchTender(id);
     }),

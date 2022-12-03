@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { EqTenderComponent } from "./eq-tender.component";
-import { AllTendersComponent } from "./pages/all-tenders/all-tenders.component";
-import { ApplicationsComponent } from "./pages/applications/applications.component";
+import { AllTendersComponent } from "./pages/all-tenders.component";
+import { ApplicationsComponent } from "./pages/applications.component";
 import { TenderApplyComponent } from "./pages/tender-apply/tender-apply.component";
 import { TendersComponent } from "./pages/tenders.component";
 

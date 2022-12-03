@@ -20,22 +20,14 @@ export interface CreateTenderApplicationDTO {
 export class EqTenderService extends GenericDataService<EqTender[]>{
 
   constructor(private m_Http: HttpClient) { super() }
-  
+
   fetchTenders(): Observable<any> {
-    return this.addErrorHandler(this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender`).pipe(
-      tap((res:any) => {
-        console.log(res);
-        this.setData = res
-      })
+    return this.addErrorReader(this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender/bloodbank`).pipe(
+      tap((res: any) => this.setData = res)
     ));
   }
 
   fetchTender(id: number): Observable<any> {
-    return this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender/${id}`);
+    return this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender/bloodbank/${id}`);
   }
-
-  createTenderApplication(dto: CreateTenderApplicationDTO): Observable<any> {
-    console.log(dto)
-    return this.addErrorHandler(this.m_Http.post(`${environment.integrationApiUrl}/EquipmentTender/application`, dto));
-  } 
 }

@@ -3,30 +3,26 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { filter, Observable, tap } from "rxjs";
 import { NavRoute } from "../../components/nav/int-nav.component";
-import { EqTender } from "./model/eq-tender.model";
-import { EqTenderService } from "./services/eq-tender.service";
+import { LoadingService } from "./services/loading.service";
 
 @Component({
   templateUrl: './eq-tender.component.html',
   styleUrls: ['./eq-tender.component.scss']
 })
 export class EqTenderComponent {
-  m_FetchData$: Observable<any> = this.m_EqTenderService.fetchTenders();
-  m_Error$: Observable<string | null> = this.m_EqTenderService.m_Error$.pipe(
-    tap(error => {
-      this.m_SnackBar.open(error!, 'close', { duration: 4000, verticalPosition: 'top' })
-      this.m_Loading = false
+
+  m_FetchData$: Observable<any> = this.m_LoadingService.loadData();
+
+  m_Error$: Observable<any> = this.m_LoadingService.m_Error$.pipe(
+    tap(err => {
+      if(err) this.m_SnackBar.open(err!, 'close', { duration: 4000, verticalPosition: 'top' });
     })
   );
-
-  m_EqTenders$: Observable<EqTender[] | null> = this.m_EqTenderService.m_Data$.pipe(tap(data => {
-    if(data) this.m_Loading = false;
-  }));
 
   m_Routes: NavRoute[] = [
     {
       path: 'tenders',
-      title: 'All Tenders'
+      title: 'Available Tenders'
     },
     {
       path: 'applications',
@@ -40,14 +36,14 @@ export class EqTenderComponent {
     tap((route: any) => {
       const arr = route.url.split('/');
       this.m_ActiveLink = arr[arr.length - 1];
-      if(this.m_ActiveLink === 'eq-tender')
+      if (this.m_ActiveLink === 'eq-tender')
         this.m_ActiveLink = 'tenders';
     })
   );
-  m_Loading: boolean = true;
+  m_Loading$: Observable<boolean | null> = this.m_LoadingService.m_Data$;
 
   constructor(private m_Route: ActivatedRoute, 
-              private m_EqTenderService: EqTenderService, 
+              private m_LoadingService: LoadingService,
               private m_SnackBar: MatSnackBar, 
               private m_Router: Router) { }
 
@@ -56,7 +52,7 @@ export class EqTenderComponent {
   }
 
   ngOnDestroy(): void {
-    this.m_EqTenderService.resetData();
+    this.m_LoadingService.resetTenderData();
   }
 
   changeTab(path: string): void {
