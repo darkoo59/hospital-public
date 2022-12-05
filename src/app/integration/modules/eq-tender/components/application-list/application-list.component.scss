@@ -9,3 +9,23 @@
     margin-top: 0px;
   }
 }
+
+.win-block{
+  margin-left: 22px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px!important;
+  .text{
+    font-size: 16px;
+    margin-right: 20px;
+    color:green;
+  }
+}
+
+.button-group{
+  display: flex;
+  justify-content: right;
+  & > button:not(:first-child){
+    margin-left: 15px;
+  }
+}

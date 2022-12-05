@@ -8,7 +8,7 @@ import { Subject, exhaustMap, tap, Observable, catchError, EMPTY } from "rxjs";
 })
 export class ConfirmDialogComponent {
   constructor(private m_DialogRef: MatDialogRef<ConfirmDialogComponent>, 
-              @Inject(MAT_DIALOG_DATA) private data: { action: Observable<any> },
+              @Inject(MAT_DIALOG_DATA) public data: { action: Observable<any>, text: string, title: string },
               private m_SnackBar: MatSnackBar) { }
 
   m_Confirm$: Subject<any> = new Subject<any>().pipe(

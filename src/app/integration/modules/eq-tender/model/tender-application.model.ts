@@ -11,5 +11,6 @@ export interface TenderApplication {
   note: string;
   totalCost: number;
   equipmentTender: EqTender;
+  hasWon: boolean;
   tenderOffers: TenderOffer[];
 }
