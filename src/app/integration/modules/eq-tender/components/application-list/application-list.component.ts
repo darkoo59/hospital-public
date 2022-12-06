@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { EMPTY, exhaustMap, Observable, Subject } from "rxjs";
 import { TenderApplication } from "../../model/tender-application.model";
-import { LoadingService } from "../../services/loading.service";
 import { TenderApplicationService } from "../../services/tender-application.service";
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 
@@ -15,8 +14,7 @@ export class ApplicationListComponent {
   m_Data$: Observable<TenderApplication[] | null> = this.m_TenderApplicationService.m_Data$;
 
   constructor(private m_TenderApplicationService: TenderApplicationService, 
-              private m_Dialog: MatDialog, 
-              private m_LoadingService: LoadingService) { }
+              private m_Dialog: MatDialog) { }
 
   isInPast(date: Date | null): boolean {
     if(!date) return false;
@@ -31,7 +29,7 @@ export class ApplicationListComponent {
     exhaustMap((id:number ) => {
       return this.openCancelApplicationDialog(id).afterClosed().pipe(
         exhaustMap(ret => {
-          return ret ? this.m_LoadingService.loadData() : EMPTY;
+          return ret ? this.m_TenderApplicationService.fetchApplications() : EMPTY;
         })
       );
     })
@@ -53,7 +51,7 @@ export class ApplicationListComponent {
     exhaustMap((id:number ) => {
       return this.openDeclineDialog(id).afterClosed().pipe(
         exhaustMap(ret => {
-          return ret ? this.m_LoadingService.loadData() : EMPTY;
+          return ret ? this.m_TenderApplicationService.fetchApplications() : EMPTY;
         })
       );
     })
@@ -74,7 +72,7 @@ export class ApplicationListComponent {
     exhaustMap((id:number ) => {
       return this.openConfirmDialog(id).afterClosed().pipe(
         exhaustMap(ret => {
-          return ret ? this.m_LoadingService.loadData() : EMPTY;
+          return ret ? this.m_TenderApplicationService.fetchApplications() : EMPTY;
         })
       );
     })
