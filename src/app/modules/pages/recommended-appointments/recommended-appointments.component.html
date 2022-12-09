@@ -1,0 +1,70 @@
+<section class="form">
+    <form class="inner" [formGroup]="findForm" (ngSubmit)="find()">
+
+    <mat-form-field appearance="fill" class="form-field">
+        <input type="date" matInput placeholder="From" formControlName="from">
+        <mat-error
+            *ngIf="this.findForm.get('date')?.touched && this.findForm.get('date')?.hasError('required')">
+            Date is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+            <input type="date" matInput placeholder="To" formControlName="to">
+            <mat-error
+            *ngIf="this.findForm.get('date')?.touched && this.findForm.get('date')?.hasError('required')">
+            Date is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Doctors</mat-label>
+        <mat-select formControlName="doctor">
+            <mat-option *ngFor="let doctor of doctors" [value]="doctor.doctorId">
+                {{doctor.name}} {{doctor.surname}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority">
+            <mat-option *ngFor="let priority of priorities" [value]="priority">
+                {{priority}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="button">
+        <button type="submit" mat-button [disabled]="!findForm.valid">Find</button>
+    </div>  
+</form>
+</section>
+<section *ngIf="flag==false" class="table">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date"> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by time"> Time </th>
+          <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+        </ng-container>
+       
+        <ng-container matColumnDef="doctor">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by doctor"> Doctor </th>
+          <td mat-cell *matCellDef="let element"> {{element.doctor.name}} {{element.doctor.surname}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"> <button></button> </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        (click)="onRowClicked(row)"></tr>
+
+    </table>
+    <br>
+    <button (click)="schedule()" >Schedule</button>
+</section>
