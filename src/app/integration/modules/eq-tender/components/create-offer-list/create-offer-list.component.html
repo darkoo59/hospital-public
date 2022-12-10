@@ -19,7 +19,7 @@
         (opened)="setStep(i)" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{req.name}}
+            {{req.type | bloodToString}}
           </mat-panel-title>
           <mat-panel-title style="justify-content: center;">
             amount: {{req.amount}}

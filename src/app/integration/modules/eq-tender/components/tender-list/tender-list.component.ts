@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 import { EqTender } from "../../model/eq-tender.model";
 import { EqTenderService } from "../../services/eq-tender.service";
 

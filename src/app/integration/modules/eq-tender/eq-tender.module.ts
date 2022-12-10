@@ -19,6 +19,7 @@ import { ApplicationListComponent } from "./components/application-list/applicat
 import { OfferListComponent } from "./components/application-list/offer-list/offer-list.component";
 import { LoadingService } from "./services/loading.service";
 import { ConfirmDialogComponent } from "./components/confirm-dialog/confirm-dialog.component";
+import { BloodPipe } from "./pipes/blood.pipe";
 
 @NgModule({
   providers: [EqTenderService, TenderApplicationService, LoadingService],
@@ -33,7 +34,8 @@ import { ConfirmDialogComponent } from "./components/confirm-dialog/confirm-dial
     CreateOfferListComponent,
     ApplicationListComponent,
     OfferListComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    BloodPipe
   ],
   imports: [
     CommonModule,
