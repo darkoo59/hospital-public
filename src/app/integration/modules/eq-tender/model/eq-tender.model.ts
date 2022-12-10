@@ -1,6 +1,6 @@
 export interface TenderItem {
   id: number;
-  name: string;
+  type: number;
   amount: number;
 }
 
