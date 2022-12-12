@@ -21,7 +21,7 @@ export class PatientInfoService {
 
     getById() : Observable<PatientInfo> {
       console.log(this.id);
-        return this.http.get<PatientInfo>(this.route + 'api/patients/getById/' + this.id, {headers: this.headers});
+        return this.http.get<PatientInfo>(this.route + 'api/patients/' + this.id, {headers: this.headers});
     }
 
 }

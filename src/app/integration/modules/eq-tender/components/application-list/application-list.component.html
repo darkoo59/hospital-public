@@ -1,0 +1,58 @@
+<div *ngLet="{
+  dataList: m_Data$ | async, 
+  cancel: m_CancelApplication$ | async, 
+  decline: m_DeclineApplication$ | async,
+  confirm: m_ConfirmApplication$ | async
+} as vm">
+  <div *ngIf="vm.dataList && vm.dataList.length != 0" class="list">
+    <mat-card class="card" *ngFor="let application of vm.dataList"
+              [ngClass]="{'pending': application.equipmentTender.state == 1, 
+                          'closed': application.equipmentTender.state == 2,
+                          'has-won': application.hasWon}">
+      <mat-card-header>
+        <mat-card-title>
+          <span>{{application.equipmentTender.title}}</span>&nbsp;
+          <span class="tender-status" *ngIf="application.equipmentTender.state == 1"><i>(confirmation pending...)</i></span>
+          <span class="tender-status closed" 
+                *ngIf="application.equipmentTender.state == 2 && !application.hasWon"><i>(tender closed...)</i></span>
+          <span class="tender-status winner"
+                *ngIf="application.equipmentTender.state == 2 && application.hasWon"><i>(you have won)</i></span>
+        </mat-card-title>
+          <mat-card-subtitle *ngIf="!application.equipmentTender.expiresOn && application.equipmentTender.state != 2" 
+                             style="color: green;">expires: never</mat-card-subtitle>
+          <mat-card-subtitle *ngIf="application.equipmentTender.expiresOn">
+            <span *ngIf="!isInPast(application.equipmentTender.expiresOn) && application.equipmentTender.state != 2" 
+                  style="color: green;">{{application.equipmentTender.expiresOn | date:'medium'}}</span>
+            <span *ngIf="isInPast(application.equipmentTender.expiresOn) && application.equipmentTender.state != 2" 
+                  style="color: red;">{{application.equipmentTender.expiresOn | date:'medium'}}</span>
+          </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{application.equipmentTender.description}}</p>
+        <div *ngIf="application.note">
+          <p style="margin-bottom: 4px;"><b>NOTE: </b></p>
+          <p>{{application.note}}</p>
+        </div>
+        <p><b>PRICE: <span style="color: green;">{{application.totalCost}}&nbsp;EUR</span></b></p>
+        <offer-list *ngIf="application.tenderOffers && application.tenderOffers.length != 0"
+          [i_Items]="application.tenderOffers">
+        </offer-list>
+      </mat-card-content>
+      <mat-card-actions align="end"
+        *ngIf="!isInPast(application.equipmentTender.expiresOn) && application.equipmentTender.state != 2 && !application.hasWon">
+        <button mat-button color="warn" (click)="m_CancelApplication$.next(application.id)">Cancel</button>
+      </mat-card-actions>
+      <mat-card-actions class="win-block" *ngIf="application.hasWon && application.equipmentTender.state == 1">
+        <div class="text">Your application has been chosen!</div>
+        <div class="button-group">
+          <button mat-button color="warn" (click)="m_DeclineApplication$.next(application.id)">Decline</button>
+          <button mat-flat-button color="primary" (click)="m_ConfirmApplication$.next(application.id)">Accept</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!vm.dataList || vm.dataList.length == 0">
+    Nothing to display...
+  </div>
+</div>

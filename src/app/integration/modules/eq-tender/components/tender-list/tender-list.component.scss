@@ -1,0 +1,20 @@
+.list {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.card{
+  margin-top: 20px;
+  &:first-child{
+    margin-top: 0px;
+  }
+}
+
+.tender-status {
+  font-size: 15px;
+  opacity: 0.7;
+  color: blue;
+  &.closed{
+    color:red;
+  }
+}

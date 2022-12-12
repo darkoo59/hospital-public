@@ -1,0 +1,77 @@
+<div *ngLet="{submit: m_SubmitForm$ | async, error: m_Error$ | async} as vm">
+  <form *ngIf="i_Tender" (ngSubmit)="onSubmit()" [formGroup]="m_Form">
+    <mat-card class="tender-main">
+      <mat-card-title>{{i_Tender.title}}</mat-card-title>
+      <mat-card-subtitle *ngIf="!i_Tender.expiresOn" style="color: green;">expires: never</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="i_Tender.expiresOn && !isInPast(i_Tender.expiresOn)" style="color: green;">expires on:
+        {{i_Tender.expiresOn | date:'medium'}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="i_Tender.expiresOn && isInPast(i_Tender.expiresOn)" style="color: red;">expired on:
+        {{i_Tender.expiresOn | date:'medium'}}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{i_Tender.description}}</p>
+      </mat-card-content>
+    </mat-card>
+  
+    <h3>Requirements</h3>
+  
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel *ngFor="let req of i_Tender.requirements; let i = index" [expanded]="m_Step === i"
+        (opened)="setStep(i)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{req.type | bloodToString}}
+          </mat-panel-title>
+          <mat-panel-title style="justify-content: center;">
+            amount: {{req.amount}}
+          </mat-panel-title>
+          <mat-panel-title style="margin-right: 0px;justify-content: right;">
+            <div style="color:green" *ngIf="getFormControlValue(req.id)">
+              <b>{{getFormControlValue(req.id)}}&nbsp;EUR</b>
+            </div>
+            <div style="color:red" *ngIf="!getFormControlValue(req.id)"><b>no price</b></div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <form [formGroup]="getMiniFormGroup(req.id)" (ngSubmit)="costSubmit(req.id)">
+          <div class="form-block">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Cost</mat-label>
+              <input type="number" matInput placeholder="Ex. 512" formControlName="cost">
+              <mat-error
+                *ngIf="getMiniFormGroup(req.id).controls['cost'].hasError('max') && !getMiniFormGroup(req.id).controls['cost'].hasError('required')">
+                Maximum value for the cost is 100000000 EUR
+              </mat-error>
+              <mat-error
+                *ngIf="getMiniFormGroup(req.id).controls['cost'].hasError('min') && !getMiniFormGroup(req.id).controls['cost'].hasError('required')">
+                Minimum value for the cost is 0 EUR
+              </mat-error>
+              <mat-error *ngIf="getMiniFormGroup(req.id).controls['cost'].hasError('required')">
+                Cost is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+  
+            <button class="btn-offer" mat-flat-button color="accent">Make Offer</button>
+          </div>
+        </form>
+  
+        <mat-action-row>
+          <button type="button" mat-button color="warn" (click)="prevStep()" *ngIf="i!=0">Previous</button>
+          <button type="button" mat-button color="primary" (click)="nextStep()"
+            *ngIf="i!=i_Tender.requirements.length - 1">Next</button>
+          <button type="button" mat-button color="primary" (click)="nextStep()"
+            *ngIf="i==i_Tender.requirements.length - 1">End</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+    <mat-form-field class="form-field note" appearance="fill">
+      <mat-label>Additional note (max length 512 characters)</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..." formControlName="note"></textarea>
+    </mat-form-field>
+  
+    <div class="button-group btn-main-group">
+      <button type="button" mat-button color="warn" (click)="resetForm()">Reset</button>
+      <button mat-flat-button color="primary">Submit</button>
+    </div>
+  </form>
+</div>

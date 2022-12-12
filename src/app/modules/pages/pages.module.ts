@@ -21,6 +21,11 @@ import { MatTableModule } from '@angular/material/table';
 import { PatientInfoComponent } from './home/patient-info/patient-info.component';
 import { RecommendedAppointmentsComponent } from './recommended-appointments/recommended-appointments.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MatStepperModule } from '@angular/material/stepper';
+import { PatientScheduleAppointmentComponent } from './home/patient-schedule-appointment/patient-schedule-appointment.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     RegisterComponent,
     AuthComponent,
     PatientInfoComponent,
-    RecommendedAppointmentsComponent
+    RecommendedAppointmentsComponent,
+    PatientScheduleAppointmentComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +54,11 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatSnackBarModule,
     MaterialModule,
     BrowserModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ]
 })
 export class PagesModule { }

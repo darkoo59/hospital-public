@@ -1,0 +1,13 @@
+/* @import "~bootstrap/dist/css/bootstrap.css" */
+
+section{
+  padding:30px;
+  &.plain{
+    padding:0px;
+  }
+}
+
+.page-container {
+  max-width: 1000px;
+  margin:auto;
+}

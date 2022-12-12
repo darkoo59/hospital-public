@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-interface NavRoute {
+export interface NavRoute {
   path: string;
   title: string;
 }
@@ -23,6 +23,10 @@ export class IntNavComponent implements OnInit {
     {
       path: 'settings',
       title: 'Settings'
+    },
+    {
+      path: 'eq-tender',
+      title: 'Equipment Tenders'
     }
   ];
 

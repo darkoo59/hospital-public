@@ -1,0 +1,57 @@
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-mdc-form-field+.mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+
+  &>button:not(:first-child) {
+    margin-left: 15px;
+  }
+}
+
+.btn-main-group {
+  margin-bottom: 100px;
+  margin-top: 40px;
+}
+
+.tender-main {
+  margin-bottom: 30px;
+}
+
+.flex-block {
+  display: flex;
+  width: 100%;
+
+  .left {
+    flex: 1;
+  }
+}
+
+.form-block {
+  max-width: 400px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.btn-offer {
+  margin-top: 10px;
+}
+
+.note {
+  margin-top: 35px;
+}
+
+textarea {
+  min-height: 80px;
+  max-height: 150px;
+}
