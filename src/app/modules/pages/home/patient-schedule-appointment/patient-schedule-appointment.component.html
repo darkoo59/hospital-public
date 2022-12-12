@@ -7,7 +7,7 @@
       <ng-template matStepLabel>Pick a date</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Pick a date</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="firstCtrl" required>
+        <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="firstCtrl" required>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>

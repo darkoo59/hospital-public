@@ -24,6 +24,9 @@ interface AppointmentTemp {
 })
 export class PatientScheduleAppointmentComponent implements OnInit {
 
+  minDate: Date | undefined;
+  maxDate: Date | undefined;
+  
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -40,12 +43,9 @@ export class PatientScheduleAppointmentComponent implements OnInit {
   isLinear = true;
 
   docBrs: DoctorBranch[] = [
-    {value: 'allergist-0', viewValue: 'Allergists/Immunologists'},
-    {value: 'anesthesiologists-1', viewValue: 'Anesthesiologists'},
-    {value: 'cardiologists-2', viewValue: 'Cardiologists'},
-    {value: 'colon-3', viewValue: 'Colon and Rectal Surgeons'},
-    {value: 'dermatologists-4', viewValue: 'Dermatologists'},
-    {value: 'endocrinologists-5', viewValue: 'Endocrinologists'},
+    {value: 'General practitioners', viewValue: 'General practitioners'},
+    {value: 'Emergency medicine', viewValue: 'Emergency medicine'},
+    {value: 'Dermatologists', viewValue: 'Dermatologists'},
   ];
 
   doctors: Doctor[] = [
@@ -66,7 +66,13 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     {value: '5', viewValue: ' 16:00'},
   ];
 
-  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar) {}
+  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar) {
+    const currentYear = new Date();
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.maxDate.setMonth(this.minDate.getMonth()+6);
+
+  }
 
   ngOnInit() {
   }
