@@ -1,0 +1,14 @@
+.form {
+  height: 370px;
+  padding: 30px;
+  width: 260px;
+  background-color: rgb(233, 229, 229);
+  border-radius: 5%;
+  margin: 1cm;
+  align-self: center;
+}
+.table {
+  height: auto;
+  padding: 5%;
+  width: 50%;
+}

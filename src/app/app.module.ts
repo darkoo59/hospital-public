@@ -24,7 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     PagesModule,
     HospitalModule,
     MatButtonModule
-  ],
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

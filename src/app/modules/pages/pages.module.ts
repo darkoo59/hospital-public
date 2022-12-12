@@ -19,13 +19,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { AuthComponent } from './auth/auth.component';
 import { MatTableModule } from '@angular/material/table';
 import { PatientInfoComponent } from './home/patient-info/patient-info.component';
+import { RecommendedAppointmentsComponent } from './recommended-appointments/recommended-appointments.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { MatStepperModule } from '@angular/material/stepper';
 import { PatientScheduleAppointmentComponent } from './home/patient-schedule-appointment/patient-schedule-appointment.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-
-
 
 @NgModule({
   declarations: [
@@ -35,10 +35,12 @@ import { MatSelectModule } from '@angular/material/select';
     RegisterComponent,
     AuthComponent,
     PatientInfoComponent,
+    RecommendedAppointmentsComponent,
     PatientScheduleAppointmentComponent
   ],
   imports: [
     CommonModule,
+    DragDropModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
