@@ -6,6 +6,7 @@ import { IntLoginComponent } from "./integration/login/int-login.component";
 import { AuthComponent } from "./modules/pages/auth/auth.component";
 import { HomeComponent } from "./modules/pages/home/home.component";
 import { LoginComponent } from "./modules/pages/login/login.component";
+import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 import { RegisterComponent } from "./modules/pages/register/register.component";
 import { WelcomeComponent } from "./modules/pages/welcome/welcome.component";
 import { RecommendedAppointmentsComponent } from "./modules/pages/recommended-appointments/recommended-appointments.component";

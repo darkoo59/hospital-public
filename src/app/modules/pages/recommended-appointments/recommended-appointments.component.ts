@@ -44,6 +44,7 @@ export class RecommendedAppointmentsComponent implements OnInit {
     });
   }
   schedule() : void{
+    console.log(this.selectedRow);
     this.appointmentService.scheduleAppointment(this.selectedRow).subscribe(res => {
       this.m_Router.navigate(['/home']);
     });

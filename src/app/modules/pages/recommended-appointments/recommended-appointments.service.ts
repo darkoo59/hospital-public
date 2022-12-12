@@ -9,9 +9,11 @@ export interface Doctor{
   surname: string;
 }
 export interface Appointment{
-  doctor: Doctor;
-  date: Date;
-  time: Time;
+  name: string;
+  date: string;
+  time: string;
+  surname: string;
+  doctorId: number;
 }
 export interface AppointmentDTO{
   from: Date;
