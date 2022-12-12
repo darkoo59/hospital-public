@@ -8,13 +8,16 @@ import { HomeComponent } from "./modules/pages/home/home.component";
 import { LoginComponent } from "./modules/pages/login/login.component";
 import { RegisterComponent } from "./modules/pages/register/register.component";
 import { WelcomeComponent } from "./modules/pages/welcome/welcome.component";
+import { PatientScheduleAppointmentComponent } from "./modules/pages/home/patient-schedule-appointment/patient-schedule-appointment.component";
+import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'auth/:id', component: AuthComponent },
+  { path: 'home', component: HomeComponent/*, canActivate: [AuthGuard]*/},
+  { path: 'auth/:id', component: AuthComponent},
+  { path: 'patient-schedule-appointment', component: PatientScheduleAppointmentComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   
   {
