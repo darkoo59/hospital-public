@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IntAuthInterceptor } from './integration/services/int-auth-interceptor.service';
 import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.service';
 import { MatButtonModule } from '@angular/material/button';
+import { ImageSliderModule } from 'src/app/imageSlider/imageSlider.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     MaterialModule,
     PagesModule,
     HospitalModule,
-    MatButtonModule
+    MatButtonModule,
+    ImageSliderModule
     ],
   providers: [
     {

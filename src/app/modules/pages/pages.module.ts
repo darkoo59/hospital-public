@@ -26,6 +26,14 @@ import { PatientScheduleAppointmentComponent } from './home/patient-schedule-app
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { AdsComponent } from './ads/ads.component';
+import { 
+	IgxCarouselModule,
+	IgxSliderModule
+ } from "igniteui-angular";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImageSliderModule } from 'src/app/imageSlider/imageSlider.module';
+import { Ads1Component } from './ads1/ads1.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,9 @@ import { MatSelectModule } from '@angular/material/select';
     AuthComponent,
     PatientInfoComponent,
     RecommendedAppointmentsComponent,
-    PatientScheduleAppointmentComponent
+    PatientScheduleAppointmentComponent,
+    AdsComponent,
+    Ads1Component
   ],
   imports: [
     CommonModule,
@@ -58,7 +68,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    IgxCarouselModule,
+    IgxSliderModule,
+    BrowserModule,
+	  BrowserAnimationsModule,
+    ImageSliderModule
   ]
 })
 export class PagesModule { }
