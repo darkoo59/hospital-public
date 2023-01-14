@@ -22,13 +22,15 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImageSliderModule } from 'src/app/imageSlider/imageSlider.module';
 
 @NgModule({
   declarations: [
     WelcomeComponent,
     LoginComponent,
     RegisterComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    BrowserModule,
+	  BrowserAnimationsModule,
+    ImageSliderModule
   ]
 })
 export class PagesModule { }

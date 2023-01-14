@@ -25,18 +25,24 @@ import { RecommendedAppointmentsComponent } from './pages/recommended-appointmen
 import { PatientInfoComponent } from './pages/patient-info/patient-info.component';
 import { PatientScheduleAppointmentComponent } from './pages/patient-schedule-appointment/patient-schedule-appointment.component';
 import { HomeComponent } from './home.component';
+import { FeedbackComponent } from './pages/feedback/feedback.component';
+import { Ads1Component } from './pages/ads1/ads1.component';
+import { ImageSliderModule } from 'src/app/imageSlider/imageSlider.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     HomeNavComponent,
+    FeedbackComponent,
     RecommendedAppointmentsComponent,
     PatientInfoComponent,
-    PatientScheduleAppointmentComponent
+    PatientScheduleAppointmentComponent,
+    Ads1Component
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
+    ImageSliderModule,
     MatListModule,
     MatSidenavModule,
     DragDropModule,

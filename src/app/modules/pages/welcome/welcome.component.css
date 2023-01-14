@@ -41,6 +41,8 @@ a{
 
 .mb-5 {
     margin-bottom: 3rem !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(50, 168, 101);
   }
 
 .text-center {
@@ -72,7 +74,7 @@ a{
 header.masthead {
     position: relative;
     background-color: #343a40;
-    background: url("./assets/bg-masthead.jpg") no-repeat center center;
+    background: url("./assets/health.jpg") no-repeat center center;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem;

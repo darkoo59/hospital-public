@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { PatientInfoComponent } from './pages/patient-info/patient-info.component';
 import { PatientScheduleAppointmentComponent } from './pages/patient-schedule-appointment/patient-schedule-appointment.component';
 import { RecommendedAppointmentsComponent } from './pages/recommended-appointments/recommended-appointments.component';
@@ -12,15 +13,19 @@ const routes: Routes = [
     children: [
       {
         path: 'patient-info',
-        component: PatientInfoComponent,
+        component: PatientInfoComponent
       },
       {
         path: 'schedule-appointment',
-        component: PatientScheduleAppointmentComponent,
+        component: PatientScheduleAppointmentComponent
       },
       {
         path: 'recommended-appointments',
-        component: RecommendedAppointmentsComponent,
+        component: RecommendedAppointmentsComponent
+      },
+      {
+        path: 'create-feedback',
+        component: FeedbackComponent
       }
     ]
   }

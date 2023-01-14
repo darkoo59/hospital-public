@@ -149,4 +149,8 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     this.fourthForm.dates.push(new Date());
   }
 
+  public scheduleAppointmentSystem(){
+    window.location.href="http://localhost:4200/home/recommended-appointments"
+  }
+
 }

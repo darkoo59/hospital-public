@@ -19,6 +19,10 @@ export class HomeNavComponent implements OnInit {
     {
       path: 'schedule-appointment',
       title: 'Schedule Appointment'
+    },
+    {
+      path: 'create-feedback',
+      title: 'Create Feedback'
     }
   ]
   constructor() { }
