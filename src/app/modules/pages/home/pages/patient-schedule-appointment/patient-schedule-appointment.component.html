@@ -13,7 +13,7 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext (click)="firstNext()">Next</button>
       </div>
     </form>
   </mat-step>
@@ -29,8 +29,8 @@
         </mat-select>
         </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious (click)="firstBack()">Back</button>
+        <button mat-button matStepperNext (click)="secondNext()">Next</button>
       </div>
     </form>
   </mat-step>
@@ -46,8 +46,8 @@
         </mat-select>
         </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious (click)="secondBack()">Back</button>
+        <button mat-button matStepperNext (click)="thirdNext()">Next</button>
       </div>
     </form>
   </mat-step>
@@ -63,7 +63,7 @@
         </mat-select>
         </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperPrevious (click)="thirdBack()">Back</button>
         <button mat-button (click)="scheduleAppointment()">Schedule</button>
       </div>
     </form>

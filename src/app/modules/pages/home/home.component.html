@@ -1,40 +1,20 @@
-<h1><b>Patient profile</b></h1>
-
-<app-patient-info></app-patient-info>
-
-<section class="form">
-    <h1> Feedback form: </h1>
-    <form [formGroup]="feedbackForm">
-        
-        <mat-form-field class="form-field" appearance="fill">
-            <mat-label for="feedbackText">Leave feedback</mat-label>
-            <textarea matInput placeholder="Share your opinions: 1-500 characters" id="feedbackText" formControlName="feedbackText"
-            required minlength="1" [(ngModel)]="feedback.textt"></textarea>
-        </mat-form-field>
-
-        <section>
-            <mat-checkbox class="example-margin" id="anonymity" formControlName="anonymity"
-             matTooltip="Your profile won't be presented next to the feedback." matTooltipPosition="right"
-             [(ngModel)]="feedback.anonymity"> Do you want to be anonymous? </mat-checkbox>
-        </section>
-
-        <section class="form-field">
-            <mat-checkbox class="example-margin" id = "privatisation" formControlName = "privatisation"
-             matTooltip="The manager won't be able to make the feedback public." matTooltipPosition="right"
-             [(ngModel)]="feedback.privatisation"> Do you want your feedback to be private? </mat-checkbox>
-        </section>
-
-        <section>
-           <button mat-raised-button disabled [disabled]="!feedbackForm.valid" id="submitButton" class="submit-button" (click)="createFeedback()"> Submit </button>
-           <button mat-raised-button class="button-position"> Cancel </button>
-        </section>
-    </form>
-</section>
-
-<section>
-    <button mat-raised-button class="button-position" (click)="logout()">Log Out</button>
-</section>
-
-<section>
-    <button mat-raised-button class="button-position" (click)="scheduleAppointment()">Schedule appointment</button>
-</section>
+<div class="main-container">
+    <mat-toolbar color="primary" class="header">
+      <mat-toolbar-row>
+        <span>Medical Clinic</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button (click)="logout()">
+          Log Out
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #snav mode="side" class="sidenav" opened>
+        <app-home-nav></app-home-nav>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

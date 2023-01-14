@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { PatientScheduleAppointmentService, EventSchedule } from '../../services/patient-schedule-appointment.service';
 interface DoctorBranch {
   value: string;
   viewValue: string;
@@ -66,7 +66,28 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     {value: '5', viewValue: ' 16:00'},
   ];
 
-  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar) {
+  firstForm: EventSchedule = {
+    id : 1,
+    dates : []
+  }
+
+  secondForm: EventSchedule = {
+    id : 2,
+    dates : []
+  }
+
+
+  thirdForm: EventSchedule = {
+    id : 3,
+    dates : []
+  }
+
+  fourthForm: EventSchedule = {
+    id : 4,
+    dates : []
+  }
+
+  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar, private _scheduleService : PatientScheduleAppointmentService) {
     const currentYear = new Date();
     this.minDate = new Date();
     this.maxDate = new Date();
@@ -75,14 +96,57 @@ export class PatientScheduleAppointmentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.firstForm.dates.push(new Date());
   }
 
   public scheduleAppointment(){
-    this._snackBar.open("Appointment succesfully scheduled.", "Ok");
+    this.fourthForm.dates.push(new Date());
+    const schedules : EventSchedule[] = [];
+    schedules.push(this.firstForm);
+    schedules.push(this.secondForm);
+    schedules.push(this.thirdForm);
+    schedules.push(this.fourthForm);
+    
+    console.log(schedules)
+
+    this._scheduleService.sendEvents(schedules).subscribe(res => {
+      
+      this._snackBar.open("Appointment succesfully scheduled.", "Ok");
       setTimeout(() => {
         window.location.href="http://localhost:4200/home"
       }, 
       3000);
+
+    });
+  }
+  public firstNext(){
+    this.firstForm.dates.push(new Date());
+    this.secondForm.dates.push(new Date());
+  }
+
+  public secondNext(){
+    this.secondForm.dates.push(new Date());
+    this.thirdForm.dates.push(new Date());
+  }
+
+  public thirdNext(){
+    this.thirdForm.dates.push(new Date());
+    this.fourthForm.dates.push(new Date());
+  }
+
+  public firstBack(){
+    this.firstForm.dates.push(new Date());
+    this.secondForm.dates.push(new Date());
+  }
+
+  public secondBack(){
+    this.secondForm.dates.push(new Date());
+    this.thirdForm.dates.push(new Date());
+  }
+
+  public thirdBack(){
+    this.thirdForm.dates.push(new Date());
+    this.fourthForm.dates.push(new Date());
   }
 
 }

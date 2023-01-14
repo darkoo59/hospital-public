@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeNavComponent } from './pages/home-nav/home-nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -11,29 +13,33 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MaterialModule } from 'src/app/material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthComponent } from './auth/auth.component';
 import { MatTableModule } from '@angular/material/table';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { RecommendedAppointmentsComponent } from './pages/recommended-appointments/recommended-appointments.component';
+import { PatientInfoComponent } from './pages/patient-info/patient-info.component';
+import { PatientScheduleAppointmentComponent } from './pages/patient-schedule-appointment/patient-schedule-appointment.component';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [
-    WelcomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    AuthComponent
+    HomeComponent,
+    HomeNavComponent,
+    RecommendedAppointmentsComponent,
+    PatientInfoComponent,
+    PatientScheduleAppointmentComponent
   ],
   imports: [
     CommonModule,
+    HomeRoutingModule,
+    MatListModule,
+    MatSidenavModule,
     DragDropModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
@@ -45,7 +51,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatTooltipModule,
     MatSnackBarModule,
     MaterialModule,
-    BrowserModule,
     MatTableModule,
     MatStepperModule,
     MatDatepickerModule,
@@ -53,4 +58,4 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule
   ]
 })
-export class PagesModule { }
+export class HomeModule { }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { PatientInfo } from './patient-info.component';
-import { UserDataService } from '../../login/log-user-data.service';
+import { UserDataService } from '../../../login/log-user-data.service';
 
 @Injectable({
   providedIn: 'root'

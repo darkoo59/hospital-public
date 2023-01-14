@@ -1,3 +1,25 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.header{
+  display: flex;
+  .left{
+    flex:1;
+    display: flex;
+    align-items: center;
+  }
+}
 a{
     margin-right: 1rem;
 }
