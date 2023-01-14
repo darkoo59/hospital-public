@@ -15,8 +15,4 @@ export class HomeComponent{
     this.m_AuthService.logout();
     this.m_Router.navigate(['/login']);
   }
-
-  public scheduleAppointment(){
-    window.location.href="http://localhost:4200/patient-schedule-appointment"
-  }
 }

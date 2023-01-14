@@ -1,17 +1,20 @@
-
-<app-patient-info></app-patient-info>
-
-<section>
-    <button mat-raised-button class="button-position" (click)="scheduleAppointment()">Schedule appointment</button>
-</section>
-
-<app-ads1></app-ads1>
-
-<section>
-    <app-feedback></app-feedback>
-</section>
-
-
-<div>
-    <button mat-raised-button class="button-position" (click)="logout()">Log Out</button>
-</div>
+<div class="main-container">
+    <mat-toolbar color="primary" class="header">
+      <mat-toolbar-row>
+        <span>Medical Clinic</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button (click)="logout()">
+          Log Out
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #snav mode="side" class="sidenav" opened="true">
+        <app-home-nav></app-home-nav>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <app-ads1></app-ads1>
+  </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Feedback } from '../model/feedback.model';
-import { FeedbackService } from '../services/feedback.service';
+import { Feedback } from '../../model/feedback.model';
+import { FeedbackService } from '../../services/feedback.service';
 
 @Component({
   selector: 'app-feedback',
