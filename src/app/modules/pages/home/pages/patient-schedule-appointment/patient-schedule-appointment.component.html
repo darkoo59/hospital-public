@@ -1,5 +1,3 @@
-<h1>Schedule your appointment.</h1>
-
 <mat-stepper [linear]="isLinear" #stepper>
 
   <mat-step [stepControl]="firstFormGroup">
@@ -71,6 +69,6 @@
 
 </mat-stepper>
 
-<section>
-  <button mat-raised-button class="button-position" (click)="scheduleAppointmentSystem()">Schedule appointment System</button>
-</section>
+<div class="align-right">
+  <button mat-raised-button  (click)="scheduleAppointmentSystem()">Schedule appointment System</button>
+</div>

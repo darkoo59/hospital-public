@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class Ads1Component implements OnInit {
 
   slides = [
-    { url: '/assets/img/img1.jpg', title: '1' },
-    { url: '/assets/img/img2.jpg', title: '2' },
-    { url: '/assets/img/img3.jpg', title: '3' },
+    { url: '/assets/img/covidVactination.png', title: '1' },
+    { url: '/assets/img/bloodDonor2.jpg', title: '2' },
+    { url: '/assets/img/bloodDonor1.jpg', title: '3' },
   ];
 
   constructor() { }
