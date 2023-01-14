@@ -14,11 +14,6 @@
 
 .header{
   display: flex;
-  .left{
-    flex:1;
-    display: flex;
-    align-items: center;
-  }
 }
 a{
     margin-right: 1rem;
@@ -42,7 +37,7 @@ a{
 .mb-5 {
     margin-bottom: 3rem !important;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(50, 168, 101);
+    color: rgb(228, 247, 245);
   }
 
 .text-center {
@@ -101,3 +96,5 @@ header.masthead {
       font-size: 3rem;
     }
   }
+
+  
