@@ -34,6 +34,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageSliderModule } from 'src/app/imageSlider/imageSlider.module';
 import { Ads1Component } from './ads1/ads1.component';
+import { FeedbackComponent } from './home/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { Ads1Component } from './ads1/ads1.component';
     RecommendedAppointmentsComponent,
     PatientScheduleAppointmentComponent,
     AdsComponent,
-    Ads1Component
+    Ads1Component,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,

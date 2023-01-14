@@ -85,4 +85,8 @@ export class PatientScheduleAppointmentComponent implements OnInit {
       3000);
   }
 
+  public scheduleAppointmentSystem(){
+    window.location.href="http://localhost:4200/recommended-appointments"
+  }
+
 }
