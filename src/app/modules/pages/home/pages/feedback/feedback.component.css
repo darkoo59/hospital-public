@@ -10,12 +10,10 @@
   }
 
   .form {
-    height: 270px;
+    height: 290px;
     padding: 20px;
-    width: 320px;
-    background-color: rgb(233, 229, 229);
-    border-radius: 5%;
-    margin: 1cm;
+    width: 540px;
+    background-color: rgba(233, 229, 229, 0.808);
   }
 
   .submit-button{
