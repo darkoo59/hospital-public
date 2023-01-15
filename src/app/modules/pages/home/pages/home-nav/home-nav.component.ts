@@ -26,7 +26,7 @@ export class HomeNavComponent implements OnInit {
     },
     {
       path: 'create-feedback',
-      title: 'Create Feedback'
+      title: 'Leave Feedback'
     }
   ]
   constructor() { }

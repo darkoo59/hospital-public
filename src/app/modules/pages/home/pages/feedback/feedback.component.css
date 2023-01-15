@@ -13,7 +13,6 @@
     height: 290px;
     padding: 20px;
     width: 540px;
-    background-color: rgba(233, 229, 229, 0.808);
   }
 
   .submit-button{
@@ -27,4 +26,14 @@
 
   h1 {
     text-align: center;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+  .button-group > button:not(:first-child) {
+    margin-left: 15px;
   }
