@@ -5,7 +5,7 @@
       <ng-template matStepLabel>Pick a date</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Pick a date</mat-label>
-        <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="firstCtrl" required>
+        <input [(ngModel)]="appointment.date" matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="firstCtrl" required>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -20,9 +20,9 @@
     <form [formGroup]="secondFormGroup">
       <mat-form-field appearance="fill">
         <mat-label>Doctor branch</mat-label>
-        <mat-select formControlName="secondCtrl">
-          <mat-option *ngFor="let docBr of docBrs" [value]="docBr.value">
-                {{docBr.viewValue}}
+        <mat-select [(ngModel)]="specializationId" formControlName="secondCtrl">
+          <mat-option *ngFor="let docBr of docBrs" [value]="docBr.specializationId">
+                {{docBr.name}}
           </mat-option>
         </mat-select>
         </mat-form-field>
@@ -37,9 +37,9 @@
     <form [formGroup]="thirdFormGroup">
       <mat-form-field appearance="fill">
         <mat-label>Doctor</mat-label>
-        <mat-select formControlName="thirdCtrl">
-          <mat-option *ngFor="let doctor of doctors" [value]="doctor.value">
-                {{doctor.viewValue}}
+        <mat-select [(ngModel)]="appointment.doctorId" formControlName="thirdCtrl">
+          <mat-option *ngFor="let doctor of doctors" [value]="doctor.doctorId">
+                {{doctor.name}} {{doctor.surname}}
           </mat-option>
         </mat-select>
         </mat-form-field>
@@ -54,9 +54,9 @@
     <form [formGroup]="fourthFormGroup">
       <mat-form-field appearance="fill">
         <mat-label>Appointment</mat-label>
-        <mat-select formControlName="fourthCtrl">
-          <mat-option *ngFor="let app of apps" [value]="app.value">
-                {{app.viewValue}}
+        <mat-select [(ngModel)]="appointment.time" formControlName="fourthCtrl">
+          <mat-option *ngFor="let app of apps" [value]="app">
+                {{app}}
           </mat-option>
         </mat-select>
         </mat-form-field>

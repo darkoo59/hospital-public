@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PatientScheduleAppointmentService, EventSchedule } from '../../services/patient-schedule-appointment.service';
+import { tap } from 'rxjs';
+import { UserDataService } from '../../../login/log-user-data.service';
+import { PatientScheduleAppointmentService, EventSchedule, Specialization, Appointment, Doctor } from '../../services/patient-schedule-appointment.service';
 interface DoctorBranch {
-  value: string;
-  viewValue: string;
-}
-
-interface Doctor {
   value: string;
   viewValue: string;
 }
@@ -23,6 +20,17 @@ interface AppointmentTemp {
   styleUrls: ['./patient-schedule-appointment.component.css']
 })
 export class PatientScheduleAppointmentComponent implements OnInit {
+
+  specializationId : number = 0;
+
+  appointment : Appointment = {
+    patientId : 0,
+    date : new Date(),
+    doctorId : 0,
+    time : ''
+  };
+
+  time : string = '';
 
   minDate: Date | undefined;
   maxDate: Date | undefined;
@@ -42,29 +50,11 @@ export class PatientScheduleAppointmentComponent implements OnInit {
 
   isLinear = true;
 
-  docBrs: DoctorBranch[] = [
-    {value: 'General practitioners', viewValue: 'General practitioners'},
-    {value: 'Emergency medicine', viewValue: 'Emergency medicine'},
-    {value: 'Dermatologists', viewValue: 'Dermatologists'},
-  ];
+  docBrs: Specialization[] = [];
 
-  doctors: Doctor[] = [
-    {value: 'vukasin-0', viewValue: 'Dr Vukašin Vukašinović'},
-    {value: 'anamarija-1', viewValue: 'Dr Anamarija Marijanović'},
-    {value: 'arsenije-2', viewValue: 'Dr Aresnije Arsenović'},
-    {value: 'magdalena-3', viewValue: 'Dr Magdalena Magdalenović'},
-    {value: 'vasilije-4', viewValue: 'Dr Vasilije Vasilić'},
-    {value: 'viktorija-5', viewValue: 'Dr Viktorija Viktorinović'},
-  ];
+  doctors: Doctor[] = [];
 
-  apps: AppointmentTemp[] = [
-    {value: '0', viewValue: ' 11:00'},
-    {value: '1', viewValue: ' 12:00'},
-    {value: '2', viewValue: ' 13:30'},
-    {value: '3', viewValue: ' 14:00'},
-    {value: '4', viewValue: ' 15:30'},
-    {value: '5', viewValue: ' 16:00'},
-  ];
+  apps: string[] = [];
 
   firstForm: EventSchedule = {
     id : 1,
@@ -87,7 +77,7 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     dates : []
   }
 
-  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar, private _scheduleService : PatientScheduleAppointmentService) {
+  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar, private _scheduleService : PatientScheduleAppointmentService,private _userService : UserDataService) {
     const currentYear = new Date();
     this.minDate = new Date();
     this.maxDate = new Date();
@@ -97,6 +87,9 @@ export class PatientScheduleAppointmentComponent implements OnInit {
 
   ngOnInit() {
     this.firstForm.dates.push(new Date());
+    this._userService.m_UserData$.pipe(tap(user_data => {
+      if(user_data?.UserId)this.appointment.patientId = user_data?.UserId;
+    })).subscribe();
   }
 
   public scheduleAppointment(){
@@ -107,9 +100,9 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     schedules.push(this.thirdForm);
     schedules.push(this.fourthForm);
     
-    console.log(schedules)
+    console.log(this.appointment)
 
-    this._scheduleService.sendEvents(schedules).subscribe(res => {
+    this._scheduleService.createAppointment(this.appointment).subscribe(res => {
       
       this._snackBar.open("Appointment succesfully scheduled.", "Ok");
       setTimeout(() => {
@@ -122,16 +115,26 @@ export class PatientScheduleAppointmentComponent implements OnInit {
   public firstNext(){
     this.firstForm.dates.push(new Date());
     this.secondForm.dates.push(new Date());
+    console.log(this.appointment.date)
+    this._scheduleService.getSpecializations().subscribe(res => {
+      this.docBrs = res;
+    })
   }
 
   public secondNext(){
     this.secondForm.dates.push(new Date());
     this.thirdForm.dates.push(new Date());
+    this._scheduleService.getDoctors(this.specializationId).subscribe(res => {
+      this.doctors = res;
+    });
   }
 
   public thirdNext(){
     this.thirdForm.dates.push(new Date());
     this.fourthForm.dates.push(new Date());
+    this._scheduleService.getAvailableAppointments(this.appointment).subscribe(res => {
+      this.apps = res;
+    });
   }
 
   public firstBack(){
