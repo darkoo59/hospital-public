@@ -30,7 +30,8 @@ const routes: Routes = [
       {
         path: 'create-feedback',
         component: FeedbackComponent
-      }
+      },
+      { path: '**', redirectTo: 'patient-home', pathMatch: 'full' }
     ]
   }
 ];
