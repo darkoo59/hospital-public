@@ -1,10 +1,26 @@
-.form {
-    height: 270px;
-    padding: 20px;
-    width: 320px;
-    background-color: rgba(233, 229, 229, 0.933);
-    border-radius: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 240px;
-  }
+.outer {
+  margin-top: 100px;
+  width: 100%;
+}
+.outer .inner {
+  width: 400px;
+  margin: auto;
+}
+.heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.form-field {
+  width: 100%;
+  margin-bottom: 6px;
+}
+.button-group {
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+.button-group > button:not(:first-child) {
+  margin-left: 15px;
+}
+
