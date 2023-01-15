@@ -10,12 +10,9 @@
   }
 
   .form {
-    height: 270px;
+    height: 290px;
     padding: 20px;
-    width: 320px;
-    background-color: rgb(233, 229, 229);
-    border-radius: 5%;
-    margin: 1cm;
+    width: 540px;
   }
 
   .submit-button{
@@ -29,4 +26,14 @@
 
   h1 {
     text-align: center;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+  .button-group > button:not(:first-child) {
+    margin-left: 15px;
   }
