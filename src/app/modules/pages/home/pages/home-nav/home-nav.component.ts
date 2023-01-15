@@ -32,6 +32,7 @@ export class HomeNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
