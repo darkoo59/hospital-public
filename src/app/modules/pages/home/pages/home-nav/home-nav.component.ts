@@ -13,6 +13,10 @@ export interface NavRoute {
 export class HomeNavComponent implements OnInit {
   m_Routes: NavRoute[] = [
     {
+      path: 'patient-home',
+      title: 'Home'
+    },
+    {
       path: 'patient-info',
       title: 'Profile'
     },
@@ -22,12 +26,13 @@ export class HomeNavComponent implements OnInit {
     },
     {
       path: 'create-feedback',
-      title: 'Create Feedback'
+      title: 'Leave Feedback'
     }
   ]
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -3,9 +3,15 @@
       <mat-toolbar-row>
         <span>Medical Clinic</span>
         <span class="example-spacer"></span>
-        <a class="btn btn-primary" href="integration">Integration Page</a>
-        <a class="btn btn-primary" href="login">Login</a>
-        <a class="btn btn-primary" href="register">Sign Up</a>
+        <a href="integration">
+          <button mat-raised-button>  Integration Page </button>
+        </a>
+        <a href="login">
+            <button mat-raised-button>  Login </button>
+        </a>
+        <a href="register">
+            <button mat-raised-button>  Sign up </button>
+        </a>
       </mat-toolbar-row>
     </mat-toolbar>
 <header class="masthead">
@@ -22,24 +28,24 @@
 
 <div class="panel panel-primary" style="padding-top: 30px; padding-left: 20px;">
     <div class="panel-heading">
-        <h1> Feedback List </h1>
+        <h1> Feedbacks </h1>
     </div>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Feedback ID</th>
                         <th>Text</th>
+                        <th>Patient</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let feedback of feedbacks">
                         <td>
-                            {{feedback.id}}
+                            {{feedback.textt}}
                         </td>
                         <td>
-                            {{feedback.textt}}
+                            {{feedback.user}}
                         </td>
                     </tr>
                 </tbody>
@@ -48,6 +54,8 @@
     </div>
 </div>
 </div>
+
+
 
 
 

@@ -1,13 +1,17 @@
+<h1> Schedule recommended appointment by our System</h1>
 <section class="form">
     <form class="inner" [formGroup]="findForm" (ngSubmit)="find()">
 
+    
     <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Pick the earliest date you are free</mat-label>
         <input type="date" matInput placeholder="From" formControlName="from">
         <mat-error
             *ngIf="this.findForm.get('date')?.touched && this.findForm.get('date')?.hasError('required')">
             Date is required</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Pick the last date</mat-label>
             <input type="date" matInput placeholder="To" formControlName="to">
             <mat-error
             *ngIf="this.findForm.get('date')?.touched && this.findForm.get('date')?.hasError('required')">
@@ -37,6 +41,7 @@
     </div>  
 </form>
 </section>
+
 <section *ngIf="flag==false" class="table">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 

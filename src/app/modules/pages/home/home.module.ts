@@ -28,6 +28,7 @@ import { HomeComponent } from './home.component';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { Ads1Component } from './pages/ads1/ads1.component';
 import { ImageSliderModule } from 'src/app/imageSlider/imageSlider.module';
+import { PatientHomeComponent } from './pages/patient-home/patient-home.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ImageSliderModule } from 'src/app/imageSlider/imageSlider.module';
     RecommendedAppointmentsComponent,
     PatientInfoComponent,
     PatientScheduleAppointmentComponent,
-    Ads1Component
+    Ads1Component,
+    PatientHomeComponent
   ],
   imports: [
     CommonModule,

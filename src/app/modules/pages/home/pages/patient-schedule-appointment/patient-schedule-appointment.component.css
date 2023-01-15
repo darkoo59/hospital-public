@@ -9,3 +9,8 @@
   h1 {
     text-align: center;
   }
+
+  .align-right {
+    text-align: right;
+    border: 0;
+  }
