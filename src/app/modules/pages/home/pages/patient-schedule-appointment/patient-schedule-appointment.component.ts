@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { UserDataService } from '../../../login/log-user-data.service';
 import { PatientScheduleAppointmentService, EventSchedule, Specialization, Appointment, Doctor } from '../../services/patient-schedule-appointment.service';
@@ -77,7 +78,7 @@ export class PatientScheduleAppointmentComponent implements OnInit {
     dates : []
   }
 
-  constructor(private _formBuilder: FormBuilder, private _snackBar : MatSnackBar, private _scheduleService : PatientScheduleAppointmentService,private _userService : UserDataService) {
+  constructor(private _router: Router, private _formBuilder: FormBuilder, private _snackBar : MatSnackBar, private _scheduleService : PatientScheduleAppointmentService,private _userService : UserDataService) {
     const currentYear = new Date();
     this.minDate = new Date();
     this.maxDate = new Date();
@@ -106,7 +107,7 @@ export class PatientScheduleAppointmentComponent implements OnInit {
       
       this._snackBar.open("Appointment succesfully scheduled.", "Ok");
       setTimeout(() => {
-        window.location.href="http://localhost:4200/home"
+        this._router.navigate(['/home']);
       }, 
       3000);
 
